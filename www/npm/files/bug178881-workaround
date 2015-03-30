@@ -1,0 +1,20 @@
+--- lib/config/defaults.js.orig	2015-02-20 16:48:40.000000000 +0000
++++ lib/config/defaults.js	2015-03-13 11:11:16.000000000 +0000
+@@ -325,16 +325,7 @@
+   }
+ 
+ function getLocalAddresses() {
+-  Object.keys(os.networkInterfaces()).map(function (nic) {
+-    return os.networkInterfaces()[nic].filter(function (addr) {
+-      return addr.family === "IPv4"
+-    })
+-    .map(function (addr) {
+-      return addr.address
+-    })
+-  }).reduce(function (curr, next) {
+-    return curr.concat(next)
+-  }, []).concat(undefined)
++  return [ '127.0.0.1', undefined ]
+ }
+ 
+ exports.shorthands =
