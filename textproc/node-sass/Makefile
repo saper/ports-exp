@@ -25,17 +25,14 @@ GH_TAGNAME=	FreeBSD
 
 USE_GITHUB=	yes
 
-NO_BUILD=	yes
-
 MAKE_ENV+=	CC.host=${CC} CXX.host=${CXX} LINK.host=${CXX} LINK.target=${CXX} V=1
 MAKE_ENV+=	SKIP_SASS_BINARY_DOWNLOAD_FOR_CI=yes
 MAKE_ENV+=	LIBSASS_EXT=yes CXXFLAGS="${CXXFLAGS}"
 MAKE_ENV+=	LIBSASS_LIBRARY=${LOCALBASE}/lib/libsass.a
 MAKE_ENV+=	LIBSASS_CFLAGS=-I${LOCALBASE}/include
+MAKE_ENV+=	NPM_CONFIG_CACHE=${DISTDIR}/npm
 
-NODE_MODULES=	${WRKDIR}/node_modules
-
-NODE_GYP=	${WRKSRC}/node_modules/pangyp/bin/node-gyp
+NPM_CACHE=	${DISTDIR}/npm
 
 .include <bsd.port.pre.mk>
 .if ${COMPILER_TYPE} == clang
@@ -45,13 +42,20 @@ USE_GCC=	any
 .endif
 
 post-fetch:
-	${MKDIR} ${NODE_MODULES}
-	${CP} ${FILESDIR}/package.json ${WRKDIR}
-	(cd ${NODE_MODULES} && ${SETENV} HOME=${WRKDIR} npm install)
+	${MKDIR} ${DISTDIR}/${PORTNAME}
+	${MKDIR} ${NPM_CACHE}
+	${CP} ${FILESDIR}/package.json ${DISTDIR}/${PORTNAME}
+	(cd ${DISTDIR}/${PORTNAME} && ${SETENV} NPM_CONFIG_CACHE=${NPM_CACHE} npm install)
+
+post-extract:
+	(cd ${DISTDIR}/${PORTNAME} && ${FIND} node_modules | ${PAX} -rw ${WRKSRC})
+
+do-build:
+	(cd ${WRKSRC} && ${SETENV} ${CONFIGURE_ENV} ${MAKE_ENV} NPM_CONFIG_CACHE=${NPM_CACHE} npm install)
 
 do-install:
-	${MV} ${NODE_MODULES} ${WRKSRC}
-	(cd ${STAGEDIR}${PREFIX}/lib && ${SETENV} HOME=${WRKDIR} ${CONFIGURE_ENV} ${MAKE_ENV} npm install ${WRKSRC})
+	${MKDIR} ${STAGEDIR}${PREFIX}/lib/node_modules/${PORTNAME}
+	(cd ${WRKSRC} && ${FIND} . | ${PAX} -rw ${STAGEDIR}${PREFIX}/lib/node_modules/${PORTNAME})
 	${LN} -s ${PREFIX}/lib/node_modules/.bin/node-sass ${STAGEDIR}${PREFIX}/bin/node-sass
 
 .include <bsd.port.post.mk>
