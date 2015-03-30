@@ -1,0 +1,31 @@
+{
+  "name": "node-sass",
+  "version": "3.0.0-beta.4",
+  "libsass": "3.2.0-beta.2",
+  "description": "Wrapper around libsass",
+  "license": "MIT",
+  "homepage": "https://github.com/sass/node-sass",
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "dependencies": {
+    "chalk": "^1.0.0",
+    "gaze": "^0.5.1",
+    "get-stdin": "^4.0.1",
+    "meow": "^3.1.0",
+    "mkdirp": "^0.5.0",
+    "nan": "^1.7.0",
+    "npmconf": "^2.1.1",
+    "pangyp": "^2.1.0",
+    "request": "^2.53.0",
+    "sass-graph": "^1.2.0"
+  },
+  "devDependencies": {
+    "coveralls": "^2.11.2",
+    "cross-spawn": "^0.2.6",
+    "jscoverage": "^0.5.9",
+    "jshint": "^2.6.3",
+    "mocha": "^2.2.1",
+    "mocha-lcov-reporter": "^0.0.2"
+  }
+}

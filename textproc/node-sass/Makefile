@@ -12,6 +12,7 @@ COMMENT=	C/C++ Sass compiler bindings for nodejs
 
 LICENSE=	MIT
 
+FETCH_DEPENDS=	npm>=0:${PORTSDIR}/www/npm
 BUILD_DEPENDS=	npm>=0:${PORTSDIR}/www/npm \
 		${LOCALBASE}/lib/libsass.a:${PORTSDIR}/textproc/libsass
 RUN_DEPENDS=	npm>=0:${PORTSDIR}/www/npm
@@ -32,6 +33,8 @@ MAKE_ENV+=	LIBSASS_EXT=yes CXXFLAGS="${CXXFLAGS}"
 MAKE_ENV+=	LIBSASS_LIBRARY=${LOCALBASE}/lib/libsass.a
 MAKE_ENV+=	LIBSASS_CFLAGS=-I${LOCALBASE}/include
 
+NODE_MODULES=	${WRKDIR}/node_modules
+
 NODE_GYP=	${WRKSRC}/node_modules/pangyp/bin/node-gyp
 
 .include <bsd.port.pre.mk>
@@ -41,7 +44,13 @@ MAKE_ENV+=	GYP_DEFINES=clang=1
 USE_GCC=	any
 .endif
 
+post-fetch:
+	${MKDIR} ${NODE_MODULES}
+	${CP} ${FILESDIR}/package.json ${WRKDIR}
+	(cd ${NODE_MODULES} && ${SETENV} HOME=${WRKDIR} npm install)
+
 do-install:
+	${MV} ${NODE_MODULES} ${WRKSRC}
 	(cd ${STAGEDIR}${PREFIX}/lib && ${SETENV} HOME=${WRKDIR} ${CONFIGURE_ENV} ${MAKE_ENV} npm install ${WRKSRC})
 	${LN} -s ${PREFIX}/lib/node_modules/.bin/node-sass ${STAGEDIR}${PREFIX}/bin/node-sass
 
