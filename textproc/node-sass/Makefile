@@ -14,6 +14,7 @@ LICENSE=	MIT
 
 FETCH_DEPENDS=	npm>=0:${PORTSDIR}/www/npm
 BUILD_DEPENDS=	npm>=0:${PORTSDIR}/www/npm \
+		${LOCALBASE}/share/node-gyp:${PORTSDIR}/misc/node-gyp-headers \
 		${LOCALBASE}/lib/libsass.a:${PORTSDIR}/textproc/libsass
 RUN_DEPENDS=	npm>=0:${PORTSDIR}/www/npm
 
@@ -30,7 +31,7 @@ MAKE_ENV+=	SKIP_SASS_BINARY_DOWNLOAD_FOR_CI=yes
 MAKE_ENV+=	LIBSASS_EXT=yes CXXFLAGS="${CXXFLAGS}"
 MAKE_ENV+=	LIBSASS_LIBRARY=${LOCALBASE}/lib/libsass.a
 MAKE_ENV+=	LIBSASS_CFLAGS=-I${LOCALBASE}/include
-MAKE_ENV+=	NPM_CONFIG_CACHE=${DISTDIR}/npm
+MAKE_ENV+=	NPM_CONFIG_CACHE=${DISTDIR}/npm NPM_CONFIG_UNSAFE_PERM=1
 
 NPM_CACHE=	${DISTDIR}/npm
 
@@ -51,11 +52,12 @@ post-extract:
 	(cd ${DISTDIR}/${PORTNAME} && ${FIND} node_modules | ${PAX} -rw ${WRKSRC})
 
 do-build:
-	(cd ${WRKSRC} && ${SETENV} ${CONFIGURE_ENV} ${MAKE_ENV} NPM_CONFIG_CACHE=${NPM_CACHE} npm install)
+	(cd ${WRKSRC} && ${SETENV} ${CONFIGURE_ENV} ${MAKE_ENV} NPM_CONFIG_CACHE=${NPM_CACHE} HOME=${LOCALBASE}/share/node-gyp npm install)
 
 do-install:
 	${MKDIR} ${STAGEDIR}${PREFIX}/lib/node_modules/${PORTNAME}
 	(cd ${WRKSRC} && ${FIND} . | ${PAX} -rw ${STAGEDIR}${PREFIX}/lib/node_modules/${PORTNAME})
+	(cd ${STAGEDIR}${PREFIX} && ${FIND} lib/node_modules/${PORTNAME}/vendor -type f >> ${TMPPLIST} )
 	${LN} -s ${PREFIX}/lib/node_modules/.bin/node-sass ${STAGEDIR}${PREFIX}/bin/node-sass
 
 .include <bsd.port.post.mk>

@@ -1,3 +1,4 @@
+bin/node-sass
 lib/node_modules/node-sass/LICENSE
 lib/node_modules/node-sass/README.md
 lib/node_modules/node-sass/bin/node-sass
@@ -1657,4 +1658,3 @@ lib/node_modules/node-sass/src/sass_types/sass_value_wrapper.h
 lib/node_modules/node-sass/src/sass_types/string.cpp
 lib/node_modules/node-sass/src/sass_types/string.h
 lib/node_modules/node-sass/src/sass_types/value.h
-lib/node_modules/node-sass/vendor/freebsd-x64-14/binding.node
