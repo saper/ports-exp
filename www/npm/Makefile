@@ -13,9 +13,10 @@ COMMENT=	Node package manager
 LICENSE=	MIT
 
 OPTIONS_SINGLE=	BACKEND
-OPTIONS_SINGLE_BACKEND=	IOJS NODE NODE_DEVEL NODE010
+OPTIONS_SINGLE_BACKEND=	IOJS IOJS42 NODE NODE_DEVEL NODE010
 OPTIONS_DEFAULT=NODE
 IOJS_DESC=	Use www/iojs as backend
+IOJS42_DESC=	Use www/iojs42 as backend
 NODE_DESC=	Use www/node as backend
 NODE_DEVEL_DESC=Use www/node-devel as backend
 NODE010_DESC=	Use www/node010 as backend
@@ -30,7 +31,8 @@ MANPREFIX=	${PREFIX}/lib/node_modules/npm
 CPE_VENDOR=	npmjs
 CPE_PRODUCT=	node_packaged_modules
 
-IOJS_RUN_DEPENDS=	iojs>=1.0.0:${PORTSDIR}/www/iojs
+IOJS_RUN_DEPENDS=	iojs>=1.4.0:${PORTSDIR}/www/iojs
+IOJS42_RUN_DEPENDS=	iojs>=1.0.0:${PORTSDIR}/www/iojs42
 NODE_DEVEL_RUN_DEPENDS=	node-devel>=0.8.0:${PORTSDIR}/www/node-devel
 NODE_RUN_DEPENDS=	node>=0.8.0:${PORTSDIR}/www/node
 NODE010_RUN_DEPENDS=	node010>=0.8.0:${PORTSDIR}/www/node010
