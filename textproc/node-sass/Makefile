@@ -18,7 +18,7 @@ BUILD_DEPENDS=	npm>=0:${PORTSDIR}/www/npm \
 		${LOCALBASE}/lib/libsass.a:${PORTSDIR}/textproc/libsass
 RUN_DEPENDS=	npm>=0:${PORTSDIR}/www/npm
 
-USES=		compiler python:2.7 gmake:lite
+USES=		compiler:c++11-lib python:2.7 gmake:lite
 
 GH_ACCOUNT=	saper
 GH_COMMIT=	5d5dff4
@@ -38,8 +38,6 @@ NPM_CACHE=	${DISTDIR}/npm
 .include <bsd.port.pre.mk>
 .if ${COMPILER_TYPE} == clang
 MAKE_ENV+=	GYP_DEFINES=clang=1
-.else
-USE_GCC=	any
 .endif
 
 post-fetch:
@@ -58,6 +56,6 @@ do-install:
 	${MKDIR} ${STAGEDIR}${PREFIX}/lib/node_modules/${PORTNAME}
 	(cd ${WRKSRC} && ${FIND} . | ${PAX} -rw ${STAGEDIR}${PREFIX}/lib/node_modules/${PORTNAME})
 	(cd ${STAGEDIR}${PREFIX} && ${FIND} lib/node_modules/${PORTNAME}/vendor -type f >> ${TMPPLIST} )
-	${LN} -s ${PREFIX}/lib/node_modules/.bin/node-sass ${STAGEDIR}${PREFIX}/bin/node-sass
+	${LN} -s ${PREFIX}/lib/node_modules/node-sass/bin/node-sass ${STAGEDIR}${PREFIX}/bin/node-sass
 
 .include <bsd.port.post.mk>
