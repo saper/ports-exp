@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	node-gyp-headers
-PORTVERSION=	0001
+PORTVERSION=	0003
 #PORTREVISION=	0
 #PORTEPOCH=	0
 CATEGORIES=	misc
@@ -17,10 +17,11 @@ USES=		zip
 
 NO_BUILD=	yes
 
-WRKSRC=		${WRKDIR}/node-gyp
+WRKSRC=		${WRKDIR}
 
 .include <bsd.port.pre.mk>
 
 do-install:
 	(cd ${WRKDIR} && ${COPYTREE_SHARE} node-gyp ${STAGEDIR}${PREFIX}/share/)
+
 .include <bsd.port.post.mk>
