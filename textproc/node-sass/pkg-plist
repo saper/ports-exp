@@ -3091,6 +3091,7 @@ lib/node_modules/node-sass/test/fixtures/custom-functions/setter-expected.css
 lib/node_modules/node-sass/test/fixtures/custom-functions/setter.scss
 lib/node_modules/node-sass/test/fixtures/custom-functions/string-conversion-expected.css
 lib/node_modules/node-sass/test/fixtures/custom-functions/string-conversion.scss
+lib/node_modules/node-sass/test/fixtures/extras/my_custom_arrays_of_importers.js
 lib/node_modules/node-sass/test/fixtures/extras/my_custom_functions_setter.js
 lib/node_modules/node-sass/test/fixtures/extras/my_custom_functions_string_conversion.js
 lib/node_modules/node-sass/test/fixtures/extras/my_custom_importer_data.js
