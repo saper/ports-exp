@@ -14,8 +14,8 @@ LICENSE=	MIT
 AUTOMAKE_ARGS=	--add-missing
 
 GH_ACCOUNT=	saper
-GH_COMMIT=	f82a41b
-GH_TAGNAME=	FreeBSD
+GH_COMMIT=	0dd6543
+GH_TAGNAME=	test/node/860
 
 INSTALL_TARGET=	install-strip
 
