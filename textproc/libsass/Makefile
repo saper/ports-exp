@@ -2,7 +2,7 @@
 # $FreeBSD: head/textproc/libsass/Makefile 360716 2014-07-05 02:58:20Z nivit $
 
 PORTNAME=	libsass
-PORTVERSION=	3.2.0.b5
+PORTVERSION=	3.2.0.b6
 CATEGORIES=	textproc
 DISTNAME=	$(PORTVERSION:S,.b,-beta.,)
 
@@ -15,7 +15,7 @@ AUTOMAKE_ARGS=	--add-missing
 
 GH_ACCOUNT=	saper
 GH_COMMIT=	0dd6543
-GH_TAGNAME=	test/node/860
+GH_TAGNAME=	FreeBSD
 
 INSTALL_TARGET=	install-strip
 
