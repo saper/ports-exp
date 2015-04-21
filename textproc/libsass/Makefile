@@ -14,7 +14,7 @@ LICENSE=	MIT
 AUTOMAKE_ARGS=	--add-missing
 
 GH_ACCOUNT=	saper
-GH_COMMIT=	0dd6543
+GH_COMMIT=	f90a1b7
 GH_TAGNAME=	FreeBSD
 
 INSTALL_TARGET=	install-strip
@@ -22,7 +22,7 @@ INSTALL_TARGET=	install-strip
 PATHFIX_MAKEFILEIN=	Makefile.am
 
 USES=		libtool pathfix compiler:c++11-lib
-USE_AUTOTOOLS=	aclocal autoconf autoheader automake libtoolize
+USE_AUTOTOOLS=	aclocal autoconf autoheader automake
 USE_GITHUB=	yes
 USE_LDCONFIG=	yes
 
