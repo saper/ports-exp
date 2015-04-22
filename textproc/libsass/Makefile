@@ -21,10 +21,10 @@ INSTALL_TARGET=	install-strip
 
 PATHFIX_MAKEFILEIN=	Makefile.am
 
-USES=		libtool pathfix compiler:c++11-lib
-USE_AUTOTOOLS=	aclocal autoconf autoheader automake
+USES=		autoreconf compiler:c++11-lib libtool pathfix gmake:lite
 USE_GITHUB=	yes
 USE_LDCONFIG=	yes
+GNU_CONFIGURE=	yes
 
 post-build:
 	(cd ${WRKSRC}/.libs && ${AR} rf ${PORTNAME}.a *.o)
