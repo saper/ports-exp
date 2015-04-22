@@ -26,8 +26,8 @@ LDFLAGS+=	-L${LOCALBASE}/lib
 
 PLIST_FILES=	bin/sassc
 
-USE_AUTOTOOLS=	aclocal autoconf autoheader automake libtoolize
 USE_GITHUB=	yes
-USES=		compiler:c++11-lib
+USES=		autoreconf compiler:c++11-lib gmake:lite
+GNU_CONFIGURE=	yes
 
 .include <bsd.port.mk>
