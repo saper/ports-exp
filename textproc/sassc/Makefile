@@ -2,7 +2,7 @@
 # $FreeBSD: head/textproc/sassc/Makefile 360717 2014-07-05 03:23:35Z nivit $
 
 PORTNAME=	sassc
-PORTVERSION=	3.2.0.b6
+PORTVERSION=	3.2.1
 CATEGORIES=	textproc
 DISTNAME=	${PORTVERSION:S,.b,-beta.,}
 
@@ -19,7 +19,7 @@ CONFIGURE_ENV+=	SASSC_VERSION="${PORTVERSION}"
 CPPFLAGS+=	-I${LOCALBASE}/include
 
 GH_ACCOUNT=	saper
-GH_COMMIT=	0405327
+GH_COMMIT=	c6a3b4e
 GH_TAGNAME=	fixes
 
 LDFLAGS+=	-L${LOCALBASE}/lib
@@ -29,5 +29,8 @@ PLIST_FILES=	bin/sassc
 USE_GITHUB=	yes
 USES=		autoreconf compiler:c++11-lib gmake:lite
 GNU_CONFIGURE=	yes
+
+post-patch:
+	@echo "echo \"${PORTVERSION}+FreeBSD.${GH_COMMIT}\"" > ${WRKSRC}/version.sh
 
 .include <bsd.port.mk>
