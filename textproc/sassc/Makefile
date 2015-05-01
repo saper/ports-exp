@@ -16,7 +16,7 @@ LIB_DEPENDS=	libsass.so:${PORTSDIR}/textproc/libsass
 AUTOMAKE_ARGS=	--add-missing
 CONFIGURE_ENV+=	SASSC_VERSION="${PORTVERSION}"
 
-CPPFLAGS+=	-I${LOCALBASE}/include
+CPPFLAGS+=	-I${LOCALBASE}/include -DSASSC_VERSION=\"\\\"${PORTVERSION}+FreeBSD.${GH_COMMIT}\\\"\"
 
 GH_ACCOUNT=	saper
 GH_COMMIT=	c6a3b4e
