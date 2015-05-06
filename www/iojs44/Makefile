@@ -35,9 +35,6 @@ USE_GCC?=	yes
 GYP_DEFINES+=	gcc_version=${CXX:S/g++//}
 .endif
 
-#		${WRKSRC}/tools/icu/icutrim.py \
-#		${WRKSRC}/tools/install.py \
-
 post-patch:
 	@${REINPLACE_CMD} -e 's|/usr/local|${LOCALBASE}|' \
 		${WRKSRC}/deps/v8/tools/gyp/v8.gyp
