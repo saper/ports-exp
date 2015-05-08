@@ -21,7 +21,7 @@ RUN_DEPENDS=	npm>=0:${PORTSDIR}/www/npm
 USES=		compiler:c++11-lib python:2.7 gmake:lite
 
 GH_ACCOUNT=	saper
-GH_COMMIT=	d266478
+GH_COMMIT=	16be724
 GH_TAGNAME=	FreeBSD
 
 USE_GITHUB=	yes
