@@ -85,10 +85,4 @@ maketar: do-clean
 	@cd ${.CURDIR}/ && ${MAKE_CMD} makesum
 
 .include <bsd.port.pre.mk>
-
-.if ${ARCH} == "i386"
-# Workaround for kernel bug 178881
-EXTRA_PATCHES+=		${PATCHDIR}/bug178881-workaround
-.endif
-
 .include <bsd.port.post.mk>
