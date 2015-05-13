@@ -844,7 +844,7 @@ lib/node_modules/node-sass/node_modules/jscoverage/node_modules/optimist/example
 lib/node_modules/node-sass/node_modules/jscoverage/node_modules/optimist/examples/usage-options.js
 lib/node_modules/node-sass/node_modules/jscoverage/node_modules/optimist/examples/xup.js
 lib/node_modules/node-sass/node_modules/jscoverage/node_modules/optimist/index.js
-lib/node_modules/node-sass/node_modules/jscoverage/node_modules/optimist/node_modules/wordwrap/.npmignore
+lib/node_modules/node-sass/node_modules/jscoverage/node_modules/optimist/node_modules/wordwrap/LICENSE
 lib/node_modules/node-sass/node_modules/jscoverage/node_modules/optimist/node_modules/wordwrap/README.markdown
 lib/node_modules/node-sass/node_modules/jscoverage/node_modules/optimist/node_modules/wordwrap/example/center.js
 lib/node_modules/node-sass/node_modules/jscoverage/node_modules/optimist/node_modules/wordwrap/example/meat.js
@@ -896,7 +896,7 @@ lib/node_modules/node-sass/node_modules/jscoverage/node_modules/uglify-js/node_m
 lib/node_modules/node-sass/node_modules/jscoverage/node_modules/uglify-js/node_modules/optimist/example/usage-options.js
 lib/node_modules/node-sass/node_modules/jscoverage/node_modules/uglify-js/node_modules/optimist/example/xup.js
 lib/node_modules/node-sass/node_modules/jscoverage/node_modules/uglify-js/node_modules/optimist/index.js
-lib/node_modules/node-sass/node_modules/jscoverage/node_modules/uglify-js/node_modules/optimist/node_modules/wordwrap/.npmignore
+lib/node_modules/node-sass/node_modules/jscoverage/node_modules/uglify-js/node_modules/optimist/node_modules/wordwrap/LICENSE
 lib/node_modules/node-sass/node_modules/jscoverage/node_modules/uglify-js/node_modules/optimist/node_modules/wordwrap/README.markdown
 lib/node_modules/node-sass/node_modules/jscoverage/node_modules/uglify-js/node_modules/optimist/node_modules/wordwrap/example/center.js
 lib/node_modules/node-sass/node_modules/jscoverage/node_modules/uglify-js/node_modules/optimist/node_modules/wordwrap/example/meat.js
@@ -2974,6 +2974,7 @@ lib/node_modules/node-sass/node_modules/pangyp/node_modules/which/bin/which
 lib/node_modules/node-sass/node_modules/pangyp/node_modules/which/package.json
 lib/node_modules/node-sass/node_modules/pangyp/node_modules/which/which.js
 lib/node_modules/node-sass/node_modules/pangyp/package.json
+lib/node_modules/node-sass/node_modules/pangyp/src/win_delay_load_hook.c
 lib/node_modules/node-sass/node_modules/request/.eslintrc
 lib/node_modules/node-sass/node_modules/request/.npmignore
 lib/node_modules/node-sass/node_modules/request/.travis.yml
