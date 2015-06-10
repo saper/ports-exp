@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	node-sass
-PORTVERSION=	3.1.0
+PORTVERSION=	3.1.2
 #PORTREVISION=	0
 #PORTEPOCH=	0
 CATEGORIES=	textproc www
@@ -14,14 +14,13 @@ LICENSE=	MIT
 
 FETCH_DEPENDS=	npm>=0:${PORTSDIR}/www/npm
 BUILD_DEPENDS=	npm>=0:${PORTSDIR}/www/npm \
-		${LOCALBASE}/share/node-gyp:${PORTSDIR}/misc/node-gyp-headers \
 		${LOCALBASE}/lib/libsass.a:${PORTSDIR}/textproc/libsass
 RUN_DEPENDS=	npm>=0:${PORTSDIR}/www/npm
 
 USES=		compiler:c++11-lib python:2.7 gmake:lite
 
 GH_ACCOUNT=	saper
-GH_COMMIT=	9e0033b
+GH_COMMIT=	411a94c
 GH_TAGNAME=	FreeBSD
 
 USE_GITHUB=	yes
@@ -32,6 +31,7 @@ MAKE_ENV+=	LIBSASS_EXT=yes CXXFLAGS="${CXXFLAGS}"
 MAKE_ENV+=	LIBSASS_LIBRARY=${LOCALBASE}/lib/libsass.a
 MAKE_ENV+=	LIBSASS_CFLAGS=-I${LOCALBASE}/include
 MAKE_ENV+=	NPM_CONFIG_CACHE=${DISTDIR}/npm NPM_CONFIG_UNSAFE_PERM=1
+MAKE_ENV+=	NPM_CONFIG_NODEDIR=${LOCALBASE}/include/node
 
 NPM_CACHE=	${DISTDIR}/npm
 
@@ -50,7 +50,7 @@ post-extract:
 	(cd ${DISTDIR}/${PORTNAME} && ${FIND} node_modules | ${PAX} -rw ${WRKSRC})
 
 do-build:
-	(cd ${WRKSRC} && ${SETENV} ${CONFIGURE_ENV} ${MAKE_ENV} NPM_CONFIG_CACHE=${NPM_CACHE} HOME=${LOCALBASE}/share/node-gyp npm install)
+	(cd ${WRKSRC} && ${SETENV} ${CONFIGURE_ENV} ${MAKE_ENV} NPM_CONFIG_CACHE=${NPM_CACHE} npm install)
 
 do-install:
 	${MKDIR} ${STAGEDIR}${PREFIX}/lib/node_modules/${PORTNAME}

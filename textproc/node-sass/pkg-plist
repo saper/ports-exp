@@ -4119,6 +4119,7 @@ lib/node_modules/node-sass/test/fixtures/source-map/expected.map
 lib/node_modules/node-sass/test/fixtures/source-map/index.scss
 lib/node_modules/node-sass/test/fixtures/watching/foo.scss
 lib/node_modules/node-sass/test/fixtures/watching/index.scss
+lib/node_modules/node-sass/test/fixtures/watching-dir/index.scss
 lib/node_modules/node-sass/test/runtime.js
 lib/node_modules/node-sass/test/spec.js
 lib/node_modules/node-sass/test/util/index.js
