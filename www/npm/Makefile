@@ -2,7 +2,7 @@
 # $FreeBSD: head/www/npm/Makefile 388747 2015-06-07 20:40:14Z sunpoet $
 
 PORTNAME=	npm
-PORTVERSION=	2.11.1
+PORTVERSION=	2.11.3
 PORTREVISION=	1
 CATEGORIES=	www
 MASTER_SITES=	LOCAL/sunpoet
@@ -17,12 +17,13 @@ OPTIONS_SINGLE_BACKEND=	IOJS43 IOJS42 IOJS44 NODE NODE_DEVEL NODE010
 OPTIONS_DEFAULT=NODE
 IOJS43_DESC=	Use www/iojs43 as backend
 IOJS42_DESC=	Use www/iojs42 as backend
-IOJS44_DESC=	Use www/iojs44 as backend
+IOJS44_DESC=	Use www/iojs as backend
 NODE_DESC=	Use www/node as backend
 NODE_DEVEL_DESC=Use www/node-devel as backend
 NODE010_DESC=	Use www/node010 as backend
 
 MAKE_ARGS=	npm_config_prefix=${STAGEDIR}${PREFIX}
+NO_ARCH=  yes
 NO_BUILD=	yes
 REINPLACE_ARGS=	-i ''
 USES=		cpe python:2 tar:xz
@@ -34,7 +35,7 @@ CPE_PRODUCT=	node_packaged_modules
 
 IOJS43_RUN_DEPENDS=	iojs>=1.4.0:${PORTSDIR}/www/iojs43
 IOJS42_RUN_DEPENDS=	iojs>=1.0.0:${PORTSDIR}/www/iojs42
-IOJS44_RUN_DEPENDS=	iojs>=2.0.0:${PORTSDIR}/www/iojs44
+IOJS44_RUN_DEPENDS=	iojs>=2.0.0:${PORTSDIR}/www/iojs
 NODE_DEVEL_RUN_DEPENDS=	node-devel>=0.8.0:${PORTSDIR}/www/node-devel
 NODE_RUN_DEPENDS=	node>=0.8.0:${PORTSDIR}/www/node
 NODE010_RUN_DEPENDS=	node010>=0.8.0:${PORTSDIR}/www/node010
