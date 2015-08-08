@@ -14,22 +14,22 @@ LICENSE=	MIT
 AUTOMAKE_ARGS=	--add-missing
 
 GH_ACCOUNT=	saper
-GH_COMMIT=	0e6b4a2
-GH_TAGNAME=	FreeBSD
+GH_TAGNAME=	5360d60
 
 INSTALL_TARGET=	install-strip
 
 PATHFIX_MAKEFILEIN=	Makefile.am
 
-USES=		autoreconf compiler:c++11-lib libtool pathfix gmake:lite
+USES=		autoreconf compiler:c++11-lib libtool pathfix gmake
 USE_GITHUB=	yes
 USE_LDCONFIG=	yes
 GNU_CONFIGURE=	yes
+MAKEFILE= GNUmakefile
 
 post-patch:
-		@echo "echo \"${PORTVERSION}+FreeBSD.${GH_COMMIT}\"" > ${WRKSRC}/version.sh
+		@echo "echo \"${PORTVERSION}+FreeBSD.${GH_TAGNAME}\"" > ${WRKSRC}/version.sh
 
 post-build:
-	(cd ${WRKSRC}/.libs && ${AR} rf ${PORTNAME}.a *.o)
+	(cd ${WRKSRC}/src/.libs && ${AR} rf ${PORTNAME}.a *.o)
 
 .include <bsd.port.mk>
