@@ -2,7 +2,7 @@
 # $FreeBSD: head/www/npm/Makefile 391310 2015-07-04 16:16:26Z sunpoet $
 
 PORTNAME=	npm
-PORTVERSION=	2.12.1
+PORTVERSION=	2.13.2
 PORTREVISION=	1
 CATEGORIES=	www
 MASTER_SITES=	LOCAL/sunpoet
@@ -13,11 +13,12 @@ COMMENT=	Node package manager
 LICENSE=	MIT
 
 OPTIONS_SINGLE=	BACKEND
-OPTIONS_SINGLE_BACKEND=	IOJS43 IOJS42 IOJS44 NODE NODE_DEVEL NODE010
+OPTIONS_SINGLE_BACKEND=	IOJS43 IOJS42 IOJS44 IOJS45 NODE NODE_DEVEL NODE010
 OPTIONS_DEFAULT=NODE
 IOJS43_DESC=	Use www/iojs43 as backend
 IOJS42_DESC=	Use www/iojs42 as backend
 IOJS44_DESC=	Use www/iojs as backend
+IOJS45_DESC=	Use www/iojs45 as backend
 NODE_DESC=	Use www/node as backend
 NODE_DEVEL_DESC=Use www/node-devel as backend
 NODE010_DESC=	Use www/node010 as backend
@@ -26,7 +27,13 @@ MAKE_ARGS=	npm_config_prefix=${STAGEDIR}${PREFIX}
 NO_ARCH=	yes
 NO_BUILD=	yes
 REINPLACE_ARGS=	-i ''
-USES=		cpe python:2 tar:xz
+SHEBANG_FILES=	lib/utils/completion.sh \
+		node_modules/request/node_modules/node-uuid/benchmark/bench.sh \
+		scripts/clean-old.sh \
+		scripts/release.sh \
+		scripts/relocate.sh \
+		test/update-test.sh
+USES=		cpe python:2 shebangfix tar:xz
 
 MANPREFIX=	${PREFIX}/lib/node_modules/npm
 
@@ -36,6 +43,7 @@ CPE_PRODUCT=	node_packaged_modules
 IOJS43_RUN_DEPENDS=	iojs>=1.4.0:${PORTSDIR}/www/iojs43
 IOJS42_RUN_DEPENDS=	iojs>=1.0.0:${PORTSDIR}/www/iojs42
 IOJS44_RUN_DEPENDS=	iojs>=2.0.0:${PORTSDIR}/www/iojs
+IOJS45_RUN_DEPENDS=	iojs>=3.0.0:/home/saper/sw/FreeBSD/www/iojs45
 NODE_DEVEL_RUN_DEPENDS=	node-devel>=0.8.0:${PORTSDIR}/www/node-devel
 NODE_RUN_DEPENDS=	node>=0.8.0:${PORTSDIR}/www/node
 NODE010_RUN_DEPENDS=	node010>=0.8.0:${PORTSDIR}/www/node010
