@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	node-sass
-PORTVERSION=	3.1.2
+PORTVERSION=	3.3.0
 #PORTREVISION=	0
 #PORTEPOCH=	0
 CATEGORIES=	textproc www
@@ -20,7 +20,7 @@ RUN_DEPENDS=	npm>=0:${PORTSDIR}/www/npm
 USES=		compiler:c++11-lib python:2.7 gmake:lite
 
 GH_ACCOUNT=	saper
-GH_COMMIT=	411a94c
+GH_COMMIT=	c5b4f33
 GH_TAGNAME=	FreeBSD
 
 USE_GITHUB=	yes
