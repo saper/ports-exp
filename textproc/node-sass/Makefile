@@ -20,8 +20,7 @@ RUN_DEPENDS=	npm>=0:${PORTSDIR}/www/npm
 USES=		compiler:c++11-lib python:2.7 gmake:lite
 
 GH_ACCOUNT=	saper
-GH_COMMIT=	c5b4f33
-GH_TAGNAME=	FreeBSD
+GH_TAGNAME=	9013e75
 
 USE_GITHUB=	yes
 
@@ -54,7 +53,7 @@ do-build:
 
 do-install:
 	${MKDIR} ${STAGEDIR}${PREFIX}/lib/node_modules/${PORTNAME}
-	(cd ${WRKSRC} && ${FIND} . | ${PAX} -rw ${STAGEDIR}${PREFIX}/lib/node_modules/${PORTNAME})
+	-(cd ${WRKSRC} && ${FIND} . | ${GREP} -v '^\./build/' | ${PAX} -rw ${STAGEDIR}${PREFIX}/lib/node_modules/${PORTNAME})
 	(cd ${STAGEDIR}${PREFIX} && ${FIND} lib/node_modules/${PORTNAME}/vendor -type f >> ${TMPPLIST} )
 	${LN} -s ${PREFIX}/lib/node_modules/node-sass/bin/node-sass ${STAGEDIR}${PREFIX}/bin/node-sass
 
