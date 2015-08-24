@@ -13,41 +13,6 @@ lib/node_modules/node-sass/TROUBLESHOOTING.md
 lib/node_modules/node-sass/appveyor.yml
 lib/node_modules/node-sass/bin/node-sass
 lib/node_modules/node-sass/binding.gyp
-lib/node_modules/node-sass/build/Debug/.deps/Debug/binding.node.d
-lib/node_modules/node-sass/build/Debug/.deps/Debug/obj.target/binding.node.d
-lib/node_modules/node-sass/build/Debug/.deps/Debug/obj.target/binding/src/binding.o.d
-lib/node_modules/node-sass/build/Debug/.deps/Debug/obj.target/binding/src/create_string.o.d
-lib/node_modules/node-sass/build/Debug/.deps/Debug/obj.target/binding/src/custom_function_bridge.o.d
-lib/node_modules/node-sass/build/Debug/.deps/Debug/obj.target/binding/src/custom_importer_bridge.o.d
-lib/node_modules/node-sass/build/Debug/.deps/Debug/obj.target/binding/src/sass_context_wrapper.o.d
-lib/node_modules/node-sass/build/Debug/.deps/Debug/obj.target/binding/src/sass_types/boolean.o.d
-lib/node_modules/node-sass/build/Debug/.deps/Debug/obj.target/binding/src/sass_types/color.o.d
-lib/node_modules/node-sass/build/Debug/.deps/Debug/obj.target/binding/src/sass_types/error.o.d
-lib/node_modules/node-sass/build/Debug/.deps/Debug/obj.target/binding/src/sass_types/factory.o.d
-lib/node_modules/node-sass/build/Debug/.deps/Debug/obj.target/binding/src/sass_types/list.o.d
-lib/node_modules/node-sass/build/Debug/.deps/Debug/obj.target/binding/src/sass_types/map.o.d
-lib/node_modules/node-sass/build/Debug/.deps/Debug/obj.target/binding/src/sass_types/null.o.d
-lib/node_modules/node-sass/build/Debug/.deps/Debug/obj.target/binding/src/sass_types/number.o.d
-lib/node_modules/node-sass/build/Debug/.deps/Debug/obj.target/binding/src/sass_types/string.o.d
-lib/node_modules/node-sass/build/Debug/obj.target/binding.node
-lib/node_modules/node-sass/build/Debug/obj.target/binding/src/binding.o
-lib/node_modules/node-sass/build/Debug/obj.target/binding/src/create_string.o
-lib/node_modules/node-sass/build/Debug/obj.target/binding/src/custom_function_bridge.o
-lib/node_modules/node-sass/build/Debug/obj.target/binding/src/custom_importer_bridge.o
-lib/node_modules/node-sass/build/Debug/obj.target/binding/src/sass_context_wrapper.o
-lib/node_modules/node-sass/build/Debug/obj.target/binding/src/sass_types/boolean.o
-lib/node_modules/node-sass/build/Debug/obj.target/binding/src/sass_types/color.o
-lib/node_modules/node-sass/build/Debug/obj.target/binding/src/sass_types/error.o
-lib/node_modules/node-sass/build/Debug/obj.target/binding/src/sass_types/factory.o
-lib/node_modules/node-sass/build/Debug/obj.target/binding/src/sass_types/list.o
-lib/node_modules/node-sass/build/Debug/obj.target/binding/src/sass_types/map.o
-lib/node_modules/node-sass/build/Debug/obj.target/binding/src/sass_types/null.o
-lib/node_modules/node-sass/build/Debug/obj.target/binding/src/sass_types/number.o
-lib/node_modules/node-sass/build/Debug/obj.target/binding/src/sass_types/string.o
-lib/node_modules/node-sass/build/Makefile
-lib/node_modules/node-sass/build/binding.Makefile
-lib/node_modules/node-sass/build/binding.target.mk
-lib/node_modules/node-sass/build/config.gypi
 lib/node_modules/node-sass/lib/extensions.js
 lib/node_modules/node-sass/lib/index.js
 lib/node_modules/node-sass/lib/render.js
@@ -5279,5 +5244,3 @@ lib/node_modules/node-sass/test/lowlevel.js
 lib/node_modules/node-sass/test/runtime.js
 lib/node_modules/node-sass/test/spec.js
 lib/node_modules/node-sass/test/util/index.js
-@dir lib/node_modules/node-sass/src/libsass
-@dir lib/node_modules/node-sass/test/fixtures/spec
