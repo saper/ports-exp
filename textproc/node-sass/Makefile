@@ -20,7 +20,7 @@ RUN_DEPENDS=	npm>=0:${PORTSDIR}/www/npm
 USES=		compiler:c++11-lib python:2.7 gmake:lite
 
 GH_ACCOUNT=	saper
-GH_TAGNAME=	9013e75
+GH_TAGNAME=	7c15014
 
 USE_GITHUB=	yes
 
