@@ -21,7 +21,7 @@ USE_LDCONFIG=	yes
 CONFLICTS=	node-0.[02-9][0-9]* node-devel-0.[0-9]*
 
 ONLY_FOR_ARCHS=	i386 amd64
-CONFIGURE_ARGS=	--prefix=${PREFIX_RELDEST} --without-npm --shared-zlib --debug
+CONFIGURE_ARGS=	--prefix=${PREFIX_RELDEST} --without-npm --shared-zlib
 PREFIX_RELDEST=	${PREFIX:S,^${DESTDIR},,}
 REINPLACE_ARGS=	-i ''
 MAKE_ENV+=	CC.host=${CC} CXX.host=${CXX} LINK.host=${CXX} LINK.target=${CXX}
