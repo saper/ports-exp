@@ -1,6 +1,6 @@
 {
   "name": "node-sass",
-  "version": "3.3.0",
+  "version": "3.3.2",
   "libsass": "3.2.5",
   "description": "Wrapper around libsass",
   "license": "MIT",
@@ -21,6 +21,9 @@
     "pangyp": "^2.3.0",
     "request": "^2.61.0",
     "sass-graph": "^2.0.1"
+  },
+  "optionalDependencies": {
+    "fsevents": "0.3.7"
   },
   "devDependencies": {
     "coveralls": "^2.11.4",
