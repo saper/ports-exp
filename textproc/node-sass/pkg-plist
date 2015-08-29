@@ -647,6 +647,7 @@ lib/node_modules/node-sass/node_modules/gaze/node_modules/globule/node_modules/g
 lib/node_modules/node-sass/node_modules/gaze/node_modules/globule/node_modules/glob/node_modules/graceful-fs/package.json
 lib/node_modules/node-sass/node_modules/gaze/node_modules/globule/node_modules/glob/node_modules/graceful-fs/test/open.js
 lib/node_modules/node-sass/node_modules/gaze/node_modules/globule/node_modules/glob/node_modules/graceful-fs/test/ulimit.js
+lib/node_modules/node-sass/node_modules/gaze/node_modules/globule/node_modules/glob/node_modules/inherits/LICENSE
 lib/node_modules/node-sass/node_modules/gaze/node_modules/globule/node_modules/glob/node_modules/inherits/README.md
 lib/node_modules/node-sass/node_modules/gaze/node_modules/globule/node_modules/glob/node_modules/inherits/inherits.js
 lib/node_modules/node-sass/node_modules/gaze/node_modules/globule/node_modules/glob/node_modules/inherits/package.json
@@ -2755,6 +2756,7 @@ lib/node_modules/node-sass/node_modules/meow/node_modules/minimist/test/bool.js
 lib/node_modules/node-sass/node_modules/meow/node_modules/minimist/test/dash.js
 lib/node_modules/node-sass/node_modules/meow/node_modules/minimist/test/default_bool.js
 lib/node_modules/node-sass/node_modules/meow/node_modules/minimist/test/dotted.js
+lib/node_modules/node-sass/node_modules/meow/node_modules/minimist/test/kv_short.js
 lib/node_modules/node-sass/node_modules/meow/node_modules/minimist/test/long.js
 lib/node_modules/node-sass/node_modules/meow/node_modules/minimist/test/num.js
 lib/node_modules/node-sass/node_modules/meow/node_modules/minimist/test/parse.js
@@ -3078,7 +3080,6 @@ lib/node_modules/node-sass/node_modules/mocha/package.json
 lib/node_modules/node-sass/node_modules/nan/.dntrc
 lib/node_modules/node-sass/node_modules/nan/CHANGELOG.md
 lib/node_modules/node-sass/node_modules/nan/LICENSE.md
-lib/node_modules/node-sass/node_modules/nan/README.md
 lib/node_modules/node-sass/node_modules/nan/appveyor.yml
 lib/node_modules/node-sass/node_modules/nan/doc/.build.sh
 lib/node_modules/node-sass/node_modules/nan/doc/asyncworker.md
