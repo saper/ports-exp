@@ -2,9 +2,9 @@
 # $FreeBSD: head/www/iojs/Makefile 393740 2015-08-08 17:07:21Z olivierd $
 
 PORTNAME=	node
-PORTVERSION=	4.0.0
-DISTVERSIONPREFIX=	v
+PORTVERSION=	4.0.0.r1
 CATEGORIES=	www
+DISTNAME=	${PORTNAME}-v${PORTVERSION:S/.r/-rc./}
 
 MAINTAINER=	linpct@gmail.com
 COMMENT=	V8 JavaScript for client and server
@@ -13,9 +13,9 @@ LICENSE=	MIT
 
 USES=		execinfo gmake python:2
 USE_GITHUB=	yes
-GH_ACCOUNT=	saper
+GH_ACCOUNT=	nodejs
 GH_PROJECT=	node
-GH_TAGNAME=	node_v46
+GH_TAGNAME=	v${PORTVERSION:S/.r/-rc./}
 HAS_CONFIGURE=	yes
 USE_LDCONFIG=	yes
 
