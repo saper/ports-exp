@@ -46,7 +46,7 @@ IOJS44_RUN_DEPENDS=	iojs>=2.0.0:${PORTSDIR}/www/iojs44
 IOJS45_RUN_DEPENDS=	iojs>=3.0.0:${PORTSDIR}/www/iojs45
 NODE012_RUN_DEPENDS=	node>=0.8.0:${PORTSDIR}/www/node012
 NODE010_RUN_DEPENDS=	node010>=0.8.0:${PORTSDIR}/www/node010
-NODE46_RUN_DEPENDS=	node>=4.0.0:${PORTSDIR}/www/node46
+NODE46_RUN_DEPENDS=	node>3.9.9:${PORTSDIR}/www/node46
 
 .include <bsd.port.pre.mk>
 
