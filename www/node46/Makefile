@@ -2,9 +2,8 @@
 # $FreeBSD: head/www/iojs/Makefile 393740 2015-08-08 17:07:21Z olivierd $
 
 PORTNAME=	node
-PORTVERSION=	4.0.0.r1
+PORTVERSION=	4.0.0
 CATEGORIES=	www
-DISTNAME=	${PORTNAME}-v${PORTVERSION:S/.r/-rc./}
 
 MAINTAINER=	linpct@gmail.com
 COMMENT=	V8 JavaScript for client and server
@@ -15,14 +14,14 @@ USES=		execinfo gmake python:2
 USE_GITHUB=	yes
 GH_ACCOUNT=	nodejs
 GH_PROJECT=	node
-GH_TAGNAME=	v${PORTVERSION:S/.r/-rc./}
+GH_TAGNAME=	v${PORTVERSION}
 HAS_CONFIGURE=	yes
 USE_LDCONFIG=	yes
 
 CONFLICTS=	node-0.[02-9][0-9]* node-devel-0.[0-9]*
 
 ONLY_FOR_ARCHS=	i386 amd64
-CONFIGURE_ARGS=	--prefix=${PREFIX_RELDEST} --without-npm --shared-zlib --debug
+CONFIGURE_ARGS=	--prefix=${PREFIX_RELDEST} --without-npm --shared-zlib
 PREFIX_RELDEST=	${PREFIX:S,^${DESTDIR},,}
 REINPLACE_ARGS=	-i ''
 MAKE_ENV+=	CC.host=${CC} CXX.host=${CXX} LINK.host=${CXX} LINK.target=${CXX}
