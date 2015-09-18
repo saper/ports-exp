@@ -5414,6 +5414,7 @@ lib/node_modules/node-sass/test/fixtures/extras/my_custom_importer_file.js
 lib/node_modules/node-sass/test/fixtures/extras/my_custom_importer_file_and_data.js
 lib/node_modules/node-sass/test/fixtures/extras/my_custom_importer_file_and_data_cb.js
 lib/node_modules/node-sass/test/fixtures/extras/my_custom_importer_file_cb.js
+lib/node_modules/node-sass/test/fixtures/follow/foo/bar/index.scss
 lib/node_modules/node-sass/test/fixtures/include-files/bar.scss
 lib/node_modules/node-sass/test/fixtures/include-files/expected-importer.css
 lib/node_modules/node-sass/test/fixtures/include-files/foo.scss

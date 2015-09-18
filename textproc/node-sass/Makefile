@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	node-sass
-PORTVERSION=	3.3.3
+PORTVERSION=	3.4.0.b1
 #PORTREVISION=	0
 #PORTEPOCH=	0
 CATEGORIES=	textproc www
@@ -14,20 +14,20 @@ LICENSE=	MIT
 
 FETCH_DEPENDS=	npm>=0:${PORTSDIR}/www/npm
 BUILD_DEPENDS=	npm>=0:${PORTSDIR}/www/npm \
-		${LOCALBASE}/lib/libsass.a:${PORTSDIR}/textproc/libsass
+		libsass>3.2.5:${PORTSDIR}/textproc/libsass
 RUN_DEPENDS=	npm>=0:${PORTSDIR}/www/npm
 
 USES=		compiler:c++11-lib python:2.7 gmake:lite
 
-GH_ACCOUNT=	saper
-GH_TAGNAME=	8352799
+GH_ACCOUNT=	sass
+GH_TAGNAME=	v3.4.0-beta1
 
 USE_GITHUB=	yes
 
 MAKE_ENV+=	CC.host=${CC} CXX.host=${CXX} LINK.host=${CXX} LINK.target=${CXX} V=1
 MAKE_ENV+=	SKIP_SASS_BINARY_DOWNLOAD_FOR_CI=yes
 MAKE_ENV+=	LIBSASS_EXT=yes CXXFLAGS="${CXXFLAGS}"
-MAKE_ENV+=	LIBSASS_LIBRARY=${LOCALBASE}/lib/libsass.a
+MAKE_ENV+=	LIBSASS_LIBRARY=${LOCALBASE}/lib/libsass_pic.a
 MAKE_ENV+=	LIBSASS_CFLAGS=-I${LOCALBASE}/include
 MAKE_ENV+=	NPM_CONFIG_CACHE=${DISTDIR}/npm NPM_CONFIG_UNSAFE_PERM=1
 MAKE_ENV+=	NPM_CONFIG_NODEDIR=${LOCALBASE}/include/node
@@ -49,7 +49,7 @@ post-extract:
 	(cd ${DISTDIR}/${PORTNAME} && ${FIND} node_modules | ${PAX} -rw ${WRKSRC})
 
 do-build:
-	(cd ${WRKSRC} && ${SETENV} ${CONFIGURE_ENV} ${MAKE_ENV} NPM_CONFIG_CACHE=${NPM_CACHE} npm install --nodedir=${PREFIX})
+	(cd ${WRKSRC} && ${SETENV} ${CONFIGURE_ENV} ${MAKE_ENV} NPM_CONFIG_CACHE=${NPM_CACHE} npm install --nodedir=${LOCALBASE})
 
 do-install:
 	${MKDIR} ${STAGEDIR}${PREFIX}/lib/node_modules/${PORTNAME}
