@@ -1,8 +1,8 @@
 # Created by: Sunpoet Po-Chuan Hsieh <sunpoet@FreeBSD.org>
-# $FreeBSD: head/www/npm/Makefile 396756 2015-09-12 17:08:04Z sunpoet $
+# $FreeBSD: head/www/npm/Makefile 398975 2015-10-10 07:05:33Z sunpoet $
 
 PORTNAME=	npm
-PORTVERSION=	2.14.3
+PORTVERSION=	2.14.7
 PORTREVISION=	1
 CATEGORIES=	www
 MASTER_SITES=	LOCAL/sunpoet
@@ -21,32 +21,32 @@ IOJS44_DESC=	Use www/iojs44 as backend
 IOJS45_DESC=	Use www/iojs45 as backend
 NODE012_DESC=	Use www/node012 as backend
 NODE010_DESC=	Use www/node010 as backend
-NODE46_DESC=	Use www/node46 as backend
+NODE46_DESC=	Use www/node as backend
 
 MAKE_ARGS=	npm_config_prefix=${STAGEDIR}${PREFIX}
+MANPREFIX=	${PREFIX}/lib/node_modules/npm
 NO_ARCH=	yes
 NO_BUILD=	yes
 REINPLACE_ARGS=	-i ''
+USES=		cpe python:2 shebangfix tar:xz
+
+CPE_VENDOR=	npmjs
+CPE_PRODUCT=	node_packaged_modules
+
 SHEBANG_FILES=	lib/utils/completion.sh \
 		node_modules/request/node_modules/node-uuid/benchmark/bench.sh \
 		scripts/clean-old.sh \
 		scripts/release.sh \
 		scripts/relocate.sh \
 		test/update-test.sh
-USES=		cpe python:2 shebangfix tar:xz
-
-MANPREFIX=	${PREFIX}/lib/node_modules/npm
-
-CPE_VENDOR=	npmjs
-CPE_PRODUCT=	node_packaged_modules
 
 IOJS43_RUN_DEPENDS=	iojs>=1.4.0:${PORTSDIR}/www/iojs43
 IOJS42_RUN_DEPENDS=	iojs>=1.0.0:${PORTSDIR}/www/iojs42
 IOJS44_RUN_DEPENDS=	iojs>=2.0.0:${PORTSDIR}/www/iojs44
 IOJS45_RUN_DEPENDS=	iojs>=3.0.0:${PORTSDIR}/www/iojs45
-NODE012_RUN_DEPENDS=	node>=0.8.0:${PORTSDIR}/www/node012
+NODE012_RUN_DEPENDS=	node012>=0.8.0:${PORTSDIR}/www/node012
 NODE010_RUN_DEPENDS=	node010>=0.8.0:${PORTSDIR}/www/node010
-NODE46_RUN_DEPENDS=	node>3.9.9:${PORTSDIR}/www/node46
+NODE46_RUN_DEPENDS=	node>3.9.9:${PORTSDIR}/www/node
 
 .include <bsd.port.pre.mk>
 
