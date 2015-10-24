@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	node-sass
-PORTVERSION=	3.4.0.b1
+PORTVERSION=	3.4.0
 #PORTREVISION=	0
 #PORTEPOCH=	0
 CATEGORIES=	textproc www
@@ -17,10 +17,10 @@ BUILD_DEPENDS=	npm>=0:${PORTSDIR}/www/npm \
 		libsass>3.2.5:${PORTSDIR}/textproc/libsass
 RUN_DEPENDS=	npm>=0:${PORTSDIR}/www/npm
 
-USES=		compiler:c++11-lib python:2.7 gmake:lite
+USES=		compiler:c++11-lib gmake:lite python:2.7
 
 GH_ACCOUNT=	sass
-GH_TAGNAME=	v3.4.0-beta1
+GH_TAGNAME=	v3.4.0
 
 USE_GITHUB=	yes
 
@@ -43,7 +43,7 @@ post-fetch:
 	${MKDIR} ${DISTDIR}/${PORTNAME}
 	${MKDIR} ${NPM_CACHE}
 	${CP} ${FILESDIR}/package.json ${DISTDIR}/${PORTNAME}
-	(cd ${DISTDIR}/${PORTNAME} && ${SETENV} NPM_CONFIG_CACHE=${NPM_CACHE} npm install --no-scripts)
+	(cd ${DISTDIR}/${PORTNAME} && ${SETENV} NPM_CONFIG_CACHE=${NPM_CACHE} npm install --ignore-scripts)
 
 post-extract:
 	(cd ${DISTDIR}/${PORTNAME} && ${FIND} node_modules | ${PAX} -rw ${WRKSRC})
