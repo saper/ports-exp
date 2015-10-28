@@ -1,9 +1,9 @@
 # Created by: Sunpoet Po-Chuan Hsieh <sunpoet@FreeBSD.org>
-# $FreeBSD: head/www/npm/Makefile 398975 2015-10-10 07:05:33Z sunpoet $
+# $FreeBSD: head/www/npm/Makefile 400189 2015-10-26 16:14:01Z amdmi3 $
 
 PORTNAME=	npm
 PORTVERSION=	2.14.7
-PORTREVISION=	1
+PORTREVISION=	2
 CATEGORIES=	www
 MASTER_SITES=	LOCAL/sunpoet
 
@@ -34,6 +34,7 @@ CPE_VENDOR=	npmjs
 CPE_PRODUCT=	node_packaged_modules
 
 SHEBANG_FILES=	lib/utils/completion.sh \
+		node_modules/node-gyp/test/docker.sh \
 		node_modules/request/node_modules/node-uuid/benchmark/bench.sh \
 		scripts/clean-old.sh \
 		scripts/release.sh \
