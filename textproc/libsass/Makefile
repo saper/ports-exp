@@ -2,7 +2,7 @@
 # $FreeBSD: head/textproc/libsass/Makefile 360716 2014-07-05 02:58:20Z nivit $
 
 PORTNAME=	libsass
-PORTVERSION=	3.3.0
+PORTVERSION=	3.3.1
 CATEGORIES=	textproc
 DISTNAME=	$(PORTVERSION:S,.b,-beta.,)
 
@@ -14,8 +14,8 @@ LICENSE=	MIT
 AUTOMAKE_ARGS=	--add-missing
 
 GH_ACCOUNT=	sass
-GH_TAGNAME=	3.3.0
-GH_COMMIT=	bb090ed
+GH_TAGNAME=	3.3.1
+GH_COMMIT=	42e22fb
 
 INSTALL_TARGET=	install-strip
 
