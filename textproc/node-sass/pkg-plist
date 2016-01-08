@@ -830,6 +830,9 @@ lib/node_modules/node-sass/node_modules/istanbul/node_modules/abbrev/package.jso
 lib/node_modules/node-sass/node_modules/istanbul/node_modules/abbrev/test.js
 lib/node_modules/node-sass/node_modules/istanbul/node_modules/async/CHANGELOG.md
 lib/node_modules/node-sass/node_modules/istanbul/node_modules/async/LICENSE
+lib/node_modules/node-sass/node_modules/istanbul/node_modules/async/README.md
+lib/node_modules/node-sass/node_modules/istanbul/node_modules/async/dist/async.js
+lib/node_modules/node-sass/node_modules/istanbul/node_modules/async/dist/async.min.js
 lib/node_modules/node-sass/node_modules/istanbul/node_modules/async/lib/async.js
 lib/node_modules/node-sass/node_modules/istanbul/node_modules/async/package.json
 lib/node_modules/node-sass/node_modules/istanbul/node_modules/escodegen/LICENSE.BSD
@@ -1284,6 +1287,7 @@ lib/node_modules/node-sass/node_modules/istanbul/node_modules/handlebars/node_mo
 lib/node_modules/node-sass/node_modules/istanbul/node_modules/handlebars/node_modules/uglify-js/node_modules/yargs/node_modules/camelcase/package.json
 lib/node_modules/node-sass/node_modules/istanbul/node_modules/handlebars/node_modules/uglify-js/node_modules/yargs/node_modules/camelcase/readme.md
 lib/node_modules/node-sass/node_modules/istanbul/node_modules/handlebars/node_modules/uglify-js/node_modules/yargs/node_modules/decamelize/index.js
+lib/node_modules/node-sass/node_modules/istanbul/node_modules/handlebars/node_modules/uglify-js/node_modules/yargs/node_modules/decamelize/license
 lib/node_modules/node-sass/node_modules/istanbul/node_modules/handlebars/node_modules/uglify-js/node_modules/yargs/node_modules/decamelize/package.json
 lib/node_modules/node-sass/node_modules/istanbul/node_modules/handlebars/node_modules/uglify-js/node_modules/yargs/node_modules/decamelize/readme.md
 lib/node_modules/node-sass/node_modules/istanbul/node_modules/handlebars/node_modules/uglify-js/node_modules/yargs/node_modules/window-size/LICENSE-MIT
@@ -2841,6 +2845,7 @@ lib/node_modules/node-sass/node_modules/meow/node_modules/normalize-package-data
 lib/node_modules/node-sass/node_modules/meow/node_modules/normalize-package-data/node_modules/validate-npm-package-license/LICENSE
 lib/node_modules/node-sass/node_modules/meow/node_modules/normalize-package-data/node_modules/validate-npm-package-license/README.md
 lib/node_modules/node-sass/node_modules/meow/node_modules/normalize-package-data/node_modules/validate-npm-package-license/index.js
+lib/node_modules/node-sass/node_modules/meow/node_modules/normalize-package-data/node_modules/validate-npm-package-license/node_modules/spdx-correct/LICENSE
 lib/node_modules/node-sass/node_modules/meow/node_modules/normalize-package-data/node_modules/validate-npm-package-license/node_modules/spdx-correct/README.md
 lib/node_modules/node-sass/node_modules/meow/node_modules/normalize-package-data/node_modules/validate-npm-package-license/node_modules/spdx-correct/index.js
 lib/node_modules/node-sass/node_modules/meow/node_modules/normalize-package-data/node_modules/validate-npm-package-license/node_modules/spdx-correct/node_modules/spdx-license-ids/LICENSE
@@ -2848,7 +2853,6 @@ lib/node_modules/node-sass/node_modules/meow/node_modules/normalize-package-data
 lib/node_modules/node-sass/node_modules/meow/node_modules/normalize-package-data/node_modules/validate-npm-package-license/node_modules/spdx-correct/node_modules/spdx-license-ids/package.json
 lib/node_modules/node-sass/node_modules/meow/node_modules/normalize-package-data/node_modules/validate-npm-package-license/node_modules/spdx-correct/node_modules/spdx-license-ids/spdx-license-ids.json
 lib/node_modules/node-sass/node_modules/meow/node_modules/normalize-package-data/node_modules/validate-npm-package-license/node_modules/spdx-correct/package.json
-lib/node_modules/node-sass/node_modules/meow/node_modules/normalize-package-data/node_modules/validate-npm-package-license/node_modules/spdx-expression-parse/LICENSE
 lib/node_modules/node-sass/node_modules/meow/node_modules/normalize-package-data/node_modules/validate-npm-package-license/node_modules/spdx-expression-parse/README.md
 lib/node_modules/node-sass/node_modules/meow/node_modules/normalize-package-data/node_modules/validate-npm-package-license/node_modules/spdx-expression-parse/index.js
 lib/node_modules/node-sass/node_modules/meow/node_modules/normalize-package-data/node_modules/validate-npm-package-license/node_modules/spdx-expression-parse/node_modules/spdx-exceptions/README.md
@@ -2880,6 +2884,7 @@ lib/node_modules/node-sass/node_modules/meow/node_modules/normalize-package-data
 lib/node_modules/node-sass/node_modules/meow/node_modules/normalize-package-data/test/github-urls.js
 lib/node_modules/node-sass/node_modules/meow/node_modules/normalize-package-data/test/mixedcase-names.js
 lib/node_modules/node-sass/node_modules/meow/node_modules/normalize-package-data/test/normalize.js
+lib/node_modules/node-sass/node_modules/meow/node_modules/normalize-package-data/test/normalize.js~
 lib/node_modules/node-sass/node_modules/meow/node_modules/normalize-package-data/test/scoped.js
 lib/node_modules/node-sass/node_modules/meow/node_modules/normalize-package-data/test/scripts.js
 lib/node_modules/node-sass/node_modules/meow/node_modules/normalize-package-data/test/strict.js
@@ -2922,6 +2927,14 @@ lib/node_modules/node-sass/node_modules/meow/node_modules/read-pkg-up/node_modul
 lib/node_modules/node-sass/node_modules/meow/node_modules/read-pkg-up/node_modules/read-pkg/node_modules/load-json-file/node_modules/parse-json/node_modules/error-ex/LICENSE
 lib/node_modules/node-sass/node_modules/meow/node_modules/read-pkg-up/node_modules/read-pkg/node_modules/load-json-file/node_modules/parse-json/node_modules/error-ex/README.md
 lib/node_modules/node-sass/node_modules/meow/node_modules/read-pkg-up/node_modules/read-pkg/node_modules/load-json-file/node_modules/parse-json/node_modules/error-ex/index.js
+lib/node_modules/node-sass/node_modules/meow/node_modules/read-pkg-up/node_modules/read-pkg/node_modules/load-json-file/node_modules/parse-json/node_modules/error-ex/node_modules/is-arrayish/.editorconfig
+lib/node_modules/node-sass/node_modules/meow/node_modules/read-pkg-up/node_modules/read-pkg/node_modules/load-json-file/node_modules/parse-json/node_modules/error-ex/node_modules/is-arrayish/.istanbul.yml
+lib/node_modules/node-sass/node_modules/meow/node_modules/read-pkg-up/node_modules/read-pkg/node_modules/load-json-file/node_modules/parse-json/node_modules/error-ex/node_modules/is-arrayish/.npmignore
+lib/node_modules/node-sass/node_modules/meow/node_modules/read-pkg-up/node_modules/read-pkg/node_modules/load-json-file/node_modules/parse-json/node_modules/error-ex/node_modules/is-arrayish/.travis.yml
+lib/node_modules/node-sass/node_modules/meow/node_modules/read-pkg-up/node_modules/read-pkg/node_modules/load-json-file/node_modules/parse-json/node_modules/error-ex/node_modules/is-arrayish/LICENSE
+lib/node_modules/node-sass/node_modules/meow/node_modules/read-pkg-up/node_modules/read-pkg/node_modules/load-json-file/node_modules/parse-json/node_modules/error-ex/node_modules/is-arrayish/README.md
+lib/node_modules/node-sass/node_modules/meow/node_modules/read-pkg-up/node_modules/read-pkg/node_modules/load-json-file/node_modules/parse-json/node_modules/error-ex/node_modules/is-arrayish/index.js
+lib/node_modules/node-sass/node_modules/meow/node_modules/read-pkg-up/node_modules/read-pkg/node_modules/load-json-file/node_modules/parse-json/node_modules/error-ex/node_modules/is-arrayish/package.json
 lib/node_modules/node-sass/node_modules/meow/node_modules/read-pkg-up/node_modules/read-pkg/node_modules/load-json-file/node_modules/parse-json/node_modules/error-ex/package.json
 lib/node_modules/node-sass/node_modules/meow/node_modules/read-pkg-up/node_modules/read-pkg/node_modules/load-json-file/node_modules/parse-json/package.json
 lib/node_modules/node-sass/node_modules/meow/node_modules/read-pkg-up/node_modules/read-pkg/node_modules/load-json-file/node_modules/parse-json/readme.md
@@ -4113,6 +4126,9 @@ lib/node_modules/node-sass/node_modules/request/node_modules/form-data/lib/brows
 lib/node_modules/node-sass/node_modules/request/node_modules/form-data/lib/form_data.js
 lib/node_modules/node-sass/node_modules/request/node_modules/form-data/node_modules/async/CHANGELOG.md
 lib/node_modules/node-sass/node_modules/request/node_modules/form-data/node_modules/async/LICENSE
+lib/node_modules/node-sass/node_modules/request/node_modules/form-data/node_modules/async/README.md
+lib/node_modules/node-sass/node_modules/request/node_modules/form-data/node_modules/async/dist/async.js
+lib/node_modules/node-sass/node_modules/request/node_modules/form-data/node_modules/async/dist/async.min.js
 lib/node_modules/node-sass/node_modules/request/node_modules/form-data/node_modules/async/lib/async.js
 lib/node_modules/node-sass/node_modules/request/node_modules/form-data/node_modules/async/package.json
 lib/node_modules/node-sass/node_modules/request/node_modules/form-data/package.json
@@ -4926,6 +4942,7 @@ lib/node_modules/node-sass/node_modules/sass-graph/node_modules/yargs/node_modul
 lib/node_modules/node-sass/node_modules/sass-graph/node_modules/yargs/node_modules/cliui/screenshot.png
 lib/node_modules/node-sass/node_modules/sass-graph/node_modules/yargs/node_modules/cliui/test/cliui.js
 lib/node_modules/node-sass/node_modules/sass-graph/node_modules/yargs/node_modules/decamelize/index.js
+lib/node_modules/node-sass/node_modules/sass-graph/node_modules/yargs/node_modules/decamelize/license
 lib/node_modules/node-sass/node_modules/sass-graph/node_modules/yargs/node_modules/decamelize/package.json
 lib/node_modules/node-sass/node_modules/sass-graph/node_modules/yargs/node_modules/decamelize/readme.md
 lib/node_modules/node-sass/node_modules/sass-graph/node_modules/yargs/node_modules/os-locale/index.js
@@ -5053,6 +5070,8 @@ lib/node_modules/node-sass/test/fixtures/simple/expected.css
 lib/node_modules/node-sass/test/fixtures/simple/index.scss
 lib/node_modules/node-sass/test/fixtures/source-comments/expected.css
 lib/node_modules/node-sass/test/fixtures/source-comments/index.scss
+lib/node_modules/node-sass/test/fixtures/source-map-embed/expected.css
+lib/node_modules/node-sass/test/fixtures/source-map-embed/index.scss
 lib/node_modules/node-sass/test/fixtures/source-map/expected.css
 lib/node_modules/node-sass/test/fixtures/source-map/expected.map
 lib/node_modules/node-sass/test/fixtures/source-map/index.scss
