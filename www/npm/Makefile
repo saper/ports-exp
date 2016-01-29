@@ -13,7 +13,7 @@ COMMENT=	Node package manager
 LICENSE=	MIT
 
 OPTIONS_SINGLE=	BACKEND
-OPTIONS_SINGLE_BACKEND=	IOJS43 IOJS42 IOJS44 IOJS45 NODE012 NODE010 NODE46
+OPTIONS_SINGLE_BACKEND=	IOJS43 IOJS42 IOJS44 IOJS45 NODE012 NODE010 NODE46 NODE47
 OPTIONS_DEFAULT=NODE
 IOJS43_DESC=	Use www/iojs43 as backend
 IOJS42_DESC=	Use www/iojs42 as backend
@@ -22,6 +22,7 @@ IOJS45_DESC=	Use www/iojs45 as backend
 NODE012_DESC=	Use www/node012 as backend
 NODE010_DESC=	Use www/node010 as backend
 NODE46_DESC=	Use www/node as backend
+NODE47_DESC=	Use www/node47 as backend
 
 MAKE_ARGS=	npm_config_prefix=${STAGEDIR}${PREFIX}
 MANPREFIX=	${PREFIX}/lib/node_modules/npm
@@ -48,6 +49,7 @@ IOJS45_RUN_DEPENDS=	iojs>=3.0.0:${PORTSDIR}/www/iojs45
 NODE012_RUN_DEPENDS=	node012>=0.8.0:${PORTSDIR}/www/node012
 NODE010_RUN_DEPENDS=	node010>=0.8.0:${PORTSDIR}/www/node010
 NODE46_RUN_DEPENDS=	node>3.9.9:${PORTSDIR}/www/node
+NODE47_RUN_DEPENDS=	node>4.9.9:${PORTSDIR}/www/node47
 
 .include <bsd.port.pre.mk>
 
