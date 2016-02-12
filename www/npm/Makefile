@@ -1,9 +1,9 @@
 # Created by: Sunpoet Po-Chuan Hsieh <sunpoet@FreeBSD.org>
-# $FreeBSD: head/www/npm/Makefile 400189 2015-10-26 16:14:01Z amdmi3 $
+# $FreeBSD: head/www/npm/Makefile 406648 2016-01-19 08:36:38Z sunpoet $
 
 PORTNAME=	npm
 PORTVERSION=	2.14.7
-PORTREVISION=	2
+PORTREVISION=	3
 CATEGORIES=	www
 MASTER_SITES=	LOCAL/sunpoet
 
@@ -11,6 +11,8 @@ MAINTAINER=	sunpoet@FreeBSD.org
 COMMENT=	Node package manager
 
 LICENSE=	MIT
+
+RUN_DEPENDS=	gmake:${PORTSDIR}/devel/gmake
 
 OPTIONS_SINGLE=	BACKEND
 OPTIONS_SINGLE_BACKEND=	IOJS43 IOJS42 IOJS44 IOJS45 NODE012 NODE010 NODE46 NODE47
