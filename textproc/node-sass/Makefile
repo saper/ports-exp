@@ -2,9 +2,10 @@
 # $FreeBSD$
 
 PORTNAME=	node-sass
-PORTVERSION=	3.4.2
+PORTVERSION=	3.5.0.b1
 #PORTREVISION=	0
 #PORTEPOCH=	0
+DISTVERSION=    v3.5.0-beta.1
 CATEGORIES=	textproc www
 
 MAINTAINER=	saper@SAPER.INFO
@@ -14,13 +15,13 @@ LICENSE=	MIT
 
 FETCH_DEPENDS=	npm>=0:${PORTSDIR}/www/npm
 BUILD_DEPENDS=	npm>=0:${PORTSDIR}/www/npm \
-		libsass>3.2.5:${PORTSDIR}/textproc/libsass
+		libsass>=3.3.3:${PORTSDIR}/textproc/libsass
 RUN_DEPENDS=	npm>=0:${PORTSDIR}/www/npm
 
 USES=		compiler:c++11-lib gmake:lite python:2.7
 
 GH_ACCOUNT=	sass
-GH_TAGNAME=	v3.4.2
+GH_TAGNAME=	${DISTVERSION}
 
 USE_GITHUB=	yes
 
