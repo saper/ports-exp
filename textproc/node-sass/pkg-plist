@@ -6765,5 +6765,3 @@ lib/node_modules/node-sass/test/lowlevel.js
 lib/node_modules/node-sass/test/runtime.js
 lib/node_modules/node-sass/test/spec.js
 lib/node_modules/node-sass/test/util/index.js
-@dir lib/node_modules/node-sass/src/libsass
-@dir lib/node_modules/node-sass/test/fixtures/spec
