@@ -4,7 +4,6 @@
 PORTNAME=	sassc
 PORTVERSION=	3.3.4
 CATEGORIES=	textproc
-DISTNAME=	${PORTVERSION:S,.b,-beta.,}
 
 MAINTAINER=	nivit@FreeBSD.org
 COMMENT=	Wrapper around libsass

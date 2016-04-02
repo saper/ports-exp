@@ -4,7 +4,6 @@
 PORTNAME=	libsass
 PORTVERSION=	3.3.4
 CATEGORIES=	textproc
-DISTNAME=	$(PORTVERSION:S,.b,-beta.,)
 
 MAINTAINER=	nivit@FreeBSD.org
 COMMENT=	C/C++ implementation of a Sass compiler
