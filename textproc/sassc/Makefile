@@ -25,7 +25,7 @@ LDFLAGS+=	-L${LOCALBASE}/lib
 PLIST_FILES=	bin/sassc
 
 USE_GITHUB=	yes
-USES=		autoreconf compiler:c++11-lib gmake:lite
+USES=		autoreconf compiler:c++11-lib gmake:lite libtool
 GNU_CONFIGURE=	yes
 
 post-patch:
