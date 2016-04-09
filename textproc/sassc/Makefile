@@ -10,7 +10,7 @@ COMMENT=	Wrapper around libsass
 
 LICENSE=	MIT
 
-LIB_DEPENDS=	libsass.so:${PORTSDIR}/textproc/libsass
+LIB_DEPENDS=	libsass.so.1:textproc/libsass
 
 AUTOMAKE_ARGS=	--add-missing
 CONFIGURE_ENV+=	SASSC_VERSION="${PORTVERSION}"
@@ -18,7 +18,7 @@ CONFIGURE_ENV+=	SASSC_VERSION="${PORTVERSION}"
 CPPFLAGS+=	-I${LOCALBASE}/include
 
 GH_ACCOUNT=	sass
-GH_COMMIT=8d3d72c
+GH_COMMIT=	8d3d72c
 
 LDFLAGS+=	-L${LOCALBASE}/lib
 
