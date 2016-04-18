@@ -1,9 +1,9 @@
 # Created by: Sunpoet Po-Chuan Hsieh <sunpoet@FreeBSD.org>
-# $FreeBSD: head/www/npm/Makefile 406648 2016-01-19 08:36:38Z sunpoet $
+# $FreeBSD: head/www/npm/Makefile 413225 2016-04-13 17:41:42Z pi $
 
 PORTNAME=	npm
-PORTVERSION=	2.14.7
-PORTREVISION=	3
+PORTVERSION=	3.8.6
+PORTREVISION=	1
 CATEGORIES=	www
 MASTER_SITES=	LOCAL/sunpoet
 
@@ -12,19 +12,21 @@ COMMENT=	Node package manager
 
 LICENSE=	MIT
 
-RUN_DEPENDS=	gmake:${PORTSDIR}/devel/gmake
+RUN_DEPENDS=	gmake:devel/gmake
+
+CONFLICTS_INSTALL=	npm2-[0-9]*
 
 OPTIONS_SINGLE=	BACKEND
-OPTIONS_SINGLE_BACKEND=	IOJS43 IOJS42 IOJS44 IOJS45 NODE012 NODE010 NODE46 NODE47
+OPTIONS_SINGLE_BACKEND=	NODE NODE010 NODE012 NODE4 IOJS43 IOJS42 IOJS44 IOJS45
 OPTIONS_DEFAULT=NODE
+NODE_DESC=	Use www/node as backend
+NODE010_DESC=	Use www/node010 as backend
+NODE012_DESC=	Use www/node012 as backend
+NODE4_DESC=	Use www/node4 as backend
 IOJS43_DESC=	Use www/iojs43 as backend
 IOJS42_DESC=	Use www/iojs42 as backend
 IOJS44_DESC=	Use www/iojs44 as backend
 IOJS45_DESC=	Use www/iojs45 as backend
-NODE012_DESC=	Use www/node012 as backend
-NODE010_DESC=	Use www/node010 as backend
-NODE46_DESC=	Use www/node as backend
-NODE47_DESC=	Use www/node47 as backend
 
 MAKE_ARGS=	npm_config_prefix=${STAGEDIR}${PREFIX}
 MANPREFIX=	${PREFIX}/lib/node_modules/npm
@@ -41,17 +43,16 @@ SHEBANG_FILES=	lib/utils/completion.sh \
 		node_modules/request/node_modules/node-uuid/benchmark/bench.sh \
 		scripts/clean-old.sh \
 		scripts/release.sh \
-		scripts/relocate.sh \
-		test/update-test.sh
+		scripts/relocate.sh
 
+NODE_RUN_DEPENDS=	node>=0.8.0:www/node
+NODE010_RUN_DEPENDS=	node010>=0.8.0:www/node010
+NODE012_RUN_DEPENDS=	node012>=0.8.0:www/node012
 IOJS43_RUN_DEPENDS=	iojs>=1.4.0:${PORTSDIR}/www/iojs43
 IOJS42_RUN_DEPENDS=	iojs>=1.0.0:${PORTSDIR}/www/iojs42
 IOJS44_RUN_DEPENDS=	iojs>=2.0.0:${PORTSDIR}/www/iojs44
 IOJS45_RUN_DEPENDS=	iojs>=3.0.0:${PORTSDIR}/www/iojs45
-NODE012_RUN_DEPENDS=	node012>=0.8.0:${PORTSDIR}/www/node012
-NODE010_RUN_DEPENDS=	node010>=0.8.0:${PORTSDIR}/www/node010
-NODE46_RUN_DEPENDS=	node>3.9.9:${PORTSDIR}/www/node
-NODE47_RUN_DEPENDS=	node>4.9.9:${PORTSDIR}/www/node47
+NODE4_RUN_DEPENDS=	node4>=0.8.0:www/node4
 
 .include <bsd.port.pre.mk>
 
