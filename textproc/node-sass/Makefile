@@ -2,10 +2,10 @@
 # $FreeBSD$
 
 PORTNAME=	node-sass
-PORTVERSION=	3.5.0.b1
+PORTVERSION=	3.5.1
 #PORTREVISION=	0
 #PORTEPOCH=	0
-DISTVERSION=    v3.5.0-beta.1
+DISTVERSION=	v3.5.1
 CATEGORIES=	textproc www
 
 MAINTAINER=	saper@SAPER.INFO
@@ -13,9 +13,10 @@ COMMENT=	C/C++ Sass compiler bindings for nodejs
 
 LICENSE=	MIT
 
+LIB_DEPENDS=	libsass.so.1:textproc/libsass
 FETCH_DEPENDS=	npm>=0:${PORTSDIR}/www/npm
 BUILD_DEPENDS=	npm>=0:${PORTSDIR}/www/npm \
-		libsass>=3.3.3:${PORTSDIR}/textproc/libsass
+		libsass>=3.3.5:${PORTSDIR}/textproc/libsass
 RUN_DEPENDS=	npm>=0:${PORTSDIR}/www/npm
 
 USES=		compiler:c++11-lib gmake:lite python:2.7
