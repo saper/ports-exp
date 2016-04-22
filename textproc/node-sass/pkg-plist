@@ -5136,9 +5136,9 @@ lib/node_modules/node-sass/node_modules/sshpk/lib/private-key.js
 lib/node_modules/node-sass/node_modules/sshpk/lib/signature.js
 lib/node_modules/node-sass/node_modules/sshpk/lib/ssh-buffer.js
 lib/node_modules/node-sass/node_modules/sshpk/lib/utils.js
-lib/node_modules/node-sass/node_modules/sshpk/man/man1/sshpk-conv.1
-lib/node_modules/node-sass/node_modules/sshpk/man/man1/sshpk-sign.1
-lib/node_modules/node-sass/node_modules/sshpk/man/man1/sshpk-verify.1
+lib/node_modules/node-sass/node_modules/sshpk/man/man1/sshpk-conv.1.gz
+lib/node_modules/node-sass/node_modules/sshpk/man/man1/sshpk-sign.1.gz
+lib/node_modules/node-sass/node_modules/sshpk/man/man1/sshpk-verify.1.gz
 lib/node_modules/node-sass/node_modules/sshpk/package.json
 lib/node_modules/node-sass/node_modules/string-width/index.js
 lib/node_modules/node-sass/node_modules/string-width/license
@@ -5576,5 +5576,3 @@ lib/node_modules/node-sass/test/lowlevel.js
 lib/node_modules/node-sass/test/runtime.js
 lib/node_modules/node-sass/test/spec.js
 lib/node_modules/node-sass/test/util/index.js
-@dir lib/node_modules/node-sass/src/libsass
-@dir lib/node_modules/node-sass/test/fixtures/spec

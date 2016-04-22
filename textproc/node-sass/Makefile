@@ -5,7 +5,7 @@ PORTNAME=	node-sass
 PORTVERSION=	3.5.1
 #PORTREVISION=	0
 #PORTEPOCH=	0
-DISTVERSION=	v3.5.1
+DISTVERSIONPREFIX=	v
 CATEGORIES=	textproc www
 
 MAINTAINER=	saper@SAPER.INFO
@@ -22,7 +22,6 @@ RUN_DEPENDS=	npm>=0:${PORTSDIR}/www/npm
 USES=		compiler:c++11-lib gmake:lite python:2.7
 
 GH_ACCOUNT=	sass
-GH_TAGNAME=	${DISTVERSION}
 
 USE_GITHUB=	yes
 
@@ -33,6 +32,8 @@ MAKE_ENV+=	LIBSASS_LIBRARY=${LOCALBASE}/lib/libsass_pic.a
 MAKE_ENV+=	LIBSASS_CFLAGS=-I${LOCALBASE}/include
 MAKE_ENV+=	NPM_CONFIG_CACHE=${DISTDIR}/npm NPM_CONFIG_UNSAFE_PERM=1
 MAKE_ENV+=	NPM_CONFIG_NODEDIR=${LOCALBASE}/include/node
+
+MANDIRS+=	${PREFIX}/lib/node_modules/node-sass/node_modules/sshpk/man/man1
 
 NPM_CACHE=	${DISTDIR}/npm
 
