@@ -16,7 +16,8 @@ LICENSE=	MIT
 LIB_DEPENDS=	libsass.so.1:textproc/libsass
 FETCH_DEPENDS=	npm>=0:${PORTSDIR}/www/npm
 BUILD_DEPENDS=	npm>=0:${PORTSDIR}/www/npm \
-		libsass>=3.3.5:${PORTSDIR}/textproc/libsass
+		libsass>=3.3.5:${PORTSDIR}/textproc/libsass \
+		git:${PORTSDIR}/devel/git-lite
 RUN_DEPENDS=	npm>=0:${PORTSDIR}/www/npm
 
 USES=		compiler:c++11-lib gmake:lite python:2.7
