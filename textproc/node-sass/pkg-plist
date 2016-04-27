@@ -728,12 +728,6 @@ lib/node_modules/node-sass/node_modules/ecc-jsbn/index.js
 lib/node_modules/node-sass/node_modules/ecc-jsbn/lib/LICENSE-jsbn
 lib/node_modules/node-sass/node_modules/ecc-jsbn/lib/ec.js
 lib/node_modules/node-sass/node_modules/ecc-jsbn/lib/sec.js
-lib/node_modules/node-sass/node_modules/ecc-jsbn/node_modules/jsbn/.npmignore
-lib/node_modules/node-sass/node_modules/ecc-jsbn/node_modules/jsbn/README.md
-lib/node_modules/node-sass/node_modules/ecc-jsbn/node_modules/jsbn/example.html
-lib/node_modules/node-sass/node_modules/ecc-jsbn/node_modules/jsbn/example.js
-lib/node_modules/node-sass/node_modules/ecc-jsbn/node_modules/jsbn/index.js
-lib/node_modules/node-sass/node_modules/ecc-jsbn/node_modules/jsbn/package.json
 lib/node_modules/node-sass/node_modules/ecc-jsbn/package.json
 lib/node_modules/node-sass/node_modules/ecc-jsbn/test.js
 lib/node_modules/node-sass/node_modules/entities/.travis.yml
@@ -3381,11 +3375,9 @@ lib/node_modules/node-sass/node_modules/ms/LICENSE
 lib/node_modules/node-sass/node_modules/ms/README.md
 lib/node_modules/node-sass/node_modules/ms/index.js
 lib/node_modules/node-sass/node_modules/ms/package.json
-lib/node_modules/node-sass/node_modules/nan/.dntrc
 lib/node_modules/node-sass/node_modules/nan/CHANGELOG.md
 lib/node_modules/node-sass/node_modules/nan/LICENSE.md
-lib/node_modules/node-sass/node_modules/nan/appveyor.yml
-lib/node_modules/node-sass/node_modules/nan/doc/.build.sh
+lib/node_modules/node-sass/node_modules/nan/README.md
 lib/node_modules/node-sass/node_modules/nan/doc/asyncworker.md
 lib/node_modules/node-sass/node_modules/nan/doc/buffers.md
 lib/node_modules/node-sass/node_modules/nan/doc/callback.md
