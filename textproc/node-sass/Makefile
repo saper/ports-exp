@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	node-sass
-PORTVERSION=	3.5.3
+PORTVERSION=	3.6.0
 #PORTREVISION=	0
 #PORTEPOCH=	0
 DISTVERSIONPREFIX=	v
@@ -16,7 +16,7 @@ LICENSE=	MIT
 LIB_DEPENDS=	libsass.so.1:textproc/libsass
 FETCH_DEPENDS=	npm>=0:${PORTSDIR}/www/npm
 BUILD_DEPENDS=	npm>=0:${PORTSDIR}/www/npm \
-		libsass>=3.3.5:${PORTSDIR}/textproc/libsass \
+		libsass>=3.3.6:${PORTSDIR}/textproc/libsass \
 		git:${PORTSDIR}/devel/git-lite
 RUN_DEPENDS=	npm>=0:${PORTSDIR}/www/npm
 

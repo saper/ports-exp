@@ -2,7 +2,7 @@
 # $FreeBSD: head/textproc/sassc/Makefile 360717 2014-07-05 03:23:35Z nivit $
 
 PORTNAME=	sassc
-PORTVERSION=	3.3.5
+PORTVERSION=	3.3.6
 CATEGORIES=	textproc
 
 MAINTAINER=	nivit@FreeBSD.org
@@ -18,7 +18,7 @@ CONFIGURE_ENV+=	SASSC_VERSION="${PORTVERSION}"
 CPPFLAGS+=	-I${LOCALBASE}/include
 
 GH_ACCOUNT=	sass
-GH_COMMIT=	e0545b6
+GH_COMMIT=	e32c23d
 
 LDFLAGS+=	-L${LOCALBASE}/lib
 
