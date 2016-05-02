@@ -16,8 +16,7 @@ LICENSE=	MIT
 LIB_DEPENDS=	libsass.so.1:textproc/libsass
 FETCH_DEPENDS=	npm>=0:${PORTSDIR}/www/npm
 BUILD_DEPENDS=	npm>=0:${PORTSDIR}/www/npm \
-		libsass>=3.3.6:${PORTSDIR}/textproc/libsass \
-		git:${PORTSDIR}/devel/git-lite
+		libsass>=3.3.6:${PORTSDIR}/textproc/libsass
 RUN_DEPENDS=	npm>=0:${PORTSDIR}/www/npm
 
 USES=		compiler:c++11-lib gmake:lite python:2.7
@@ -46,6 +45,7 @@ MAKE_ENV+=	GYP_DEFINES=clang=1
 post-fetch:
 	${MKDIR} ${DISTDIR}/${PORTNAME}
 	${MKDIR} ${NPM_CACHE}
+	${CP} ${FILESDIR}/npm-shrinkwrap.json ${DISTDIR}/${PORTNAME}
 	${CP} ${FILESDIR}/package.json ${DISTDIR}/${PORTNAME}
 	(cd ${DISTDIR}/${PORTNAME} && ${SETENV} NPM_CONFIG_CACHE=${NPM_CACHE} npm install --ignore-scripts)
 
