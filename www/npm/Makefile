@@ -1,8 +1,8 @@
 # Created by: Sunpoet Po-Chuan Hsieh <sunpoet@FreeBSD.org>
-# $FreeBSD: head/www/npm/Makefile 413225 2016-04-13 17:41:42Z pi $
+# $FreeBSD: head/www/npm/Makefile 414418 2016-05-01 19:58:57Z sunpoet $
 
 PORTNAME=	npm
-PORTVERSION=	3.8.6
+PORTVERSION=	3.8.8
 PORTREVISION=	1
 CATEGORIES=	www
 MASTER_SITES=	LOCAL/sunpoet
@@ -12,13 +12,13 @@ COMMENT=	Node package manager
 
 LICENSE=	MIT
 
-RUN_DEPENDS=	gmake:devel/gmake
+RUN_DEPENDS=	gmake:devel/gmake \
 
 CONFLICTS_INSTALL=	npm2-[0-9]*
 
 OPTIONS_SINGLE=	BACKEND
-OPTIONS_SINGLE_BACKEND=	NODE NODE010 NODE012 NODE4 IOJS43 IOJS42 IOJS44 IOJS45
-OPTIONS_DEFAULT=NODE
+OPTIONS_SINGLE_BACKEND=	NODE NODE010 NODE012 NODE4 IOJS43 IOJS42 IOJS44 IOJS45 NODE48
+OPTIONS_DEFAULT=	NODE
 NODE_DESC=	Use www/node as backend
 NODE010_DESC=	Use www/node010 as backend
 NODE012_DESC=	Use www/node012 as backend
@@ -27,6 +27,7 @@ IOJS43_DESC=	Use www/iojs43 as backend
 IOJS42_DESC=	Use www/iojs42 as backend
 IOJS44_DESC=	Use www/iojs44 as backend
 IOJS45_DESC=	Use www/iojs45 as backend
+NODE48_DESC=	Use www/node48 as backend
 
 MAKE_ARGS=	npm_config_prefix=${STAGEDIR}${PREFIX}
 MANPREFIX=	${PREFIX}/lib/node_modules/npm
@@ -53,6 +54,7 @@ IOJS42_RUN_DEPENDS=	iojs>=1.0.0:${PORTSDIR}/www/iojs42
 IOJS44_RUN_DEPENDS=	iojs>=2.0.0:${PORTSDIR}/www/iojs44
 IOJS45_RUN_DEPENDS=	iojs>=3.0.0:${PORTSDIR}/www/iojs45
 NODE4_RUN_DEPENDS=	node4>=0.8.0:www/node4
+NODE48_RUN_DEPENDS=	node>=0.8.0:www/node48
 
 .include <bsd.port.pre.mk>
 
