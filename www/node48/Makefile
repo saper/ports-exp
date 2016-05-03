@@ -10,7 +10,7 @@ COMMENT=	V8 JavaScript for client and server
 
 LICENSE=	MIT
 
-USES=		execinfo gmake python:2
+USES=		execinfo gmake python:2,build
 USE_GITHUB=	yes
 GH_ACCOUNT=	nodejs
 GH_PROJECT=	node
@@ -48,7 +48,8 @@ post-patch:
 		${WRKSRC}/tools/icu/icu-generic.gyp \
 		${WRKSRC}/deps/v8/build/shim_headers.gypi \
 		${WRKSRC}/deps/v8/tools/gyp/v8.gyp \
-		${WRKSRC}/deps/v8/src/d8.gyp
+		${WRKSRC}/deps/v8/src/d8.gyp \
+		${WRKSRC}/node.gyp
 
 post-install:
 	${STRIP_CMD} ${STAGEDIR}${PREFIX}/bin/node
