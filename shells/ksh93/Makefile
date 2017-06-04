@@ -24,7 +24,7 @@ LICENSE=	EPL
 
 OPTIONS_DEFINE=	EXAMPLES STATIC
 
-FETCH_ENV=	HTTP_AUTH=basic:*:I\ accept\ www.opensource.org/licenses/cpl:.
+FETCH_ARGS+=	--ca-cert="${FILESDIR}/dst_root_ca_x3.crt"
 LDFLAGS+=	-lm
 MAKE_ENV=	CCFLAGS="${CFLAGS}"
 NO_WRKSUBDIR=	yes
