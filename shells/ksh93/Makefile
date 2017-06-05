@@ -24,17 +24,14 @@ LICENSE=	EPL
 
 OPTIONS_DEFINE=	EXAMPLES STATIC
 
-FETCH_ARGS+=	--ca-cert="${FILESDIR}/dst_root_ca_x3.crt"
 LDFLAGS+=	-lm
-MAKE_ENV=	CCFLAGS="${CFLAGS}"
+MAKE_ENV=	CCFLAGS="-Wno-unused-value -Wno-parentheses -Wno-logical-op-parentheses ${CFLAGS}"
 NO_WRKSUBDIR=	yes
 
 INITVERSION=	2014-12-24
 KSHVERSION=	2016-07-16
 
 STATIC_MAKE_ENV=	LDFLAGS+=-static
-
-BROKEN_aarch64=		Fails to compile: error: unknown type name Dllscan_t
 
 .include <bsd.port.pre.mk>
 
