@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	node-sass
-PORTVERSION=	3.8.0
+PORTVERSION=	4.5.3
 #PORTREVISION=	0
 #PORTEPOCH=	0
 DISTVERSIONPREFIX=	v
@@ -13,13 +13,12 @@ COMMENT=	C/C++ Sass compiler bindings for nodejs
 
 LICENSE=	MIT
 
-LIB_DEPENDS=	libsass.so.1:textproc/libsass
+LIB_DEPENDS=	libsass.so.1:textproc/libsass35
 FETCH_DEPENDS=	npm>=0:${PORTSDIR}/www/npm
-BUILD_DEPENDS=	npm>=0:${PORTSDIR}/www/npm \
-		libsass>=3.3.6:${PORTSDIR}/textproc/libsass
+BUILD_DEPENDS=	npm>=0:${PORTSDIR}/www/npm
 RUN_DEPENDS=	npm>=0:${PORTSDIR}/www/npm
 
-USES=		compiler:c++11-lib gmake:lite python:2.7
+USES=		compiler:c++11-lib gmake python:2.7
 
 GH_ACCOUNT=	sass
 
