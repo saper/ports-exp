@@ -1,34 +1,27 @@
 # Created by: Nicola Vitale <nivit@FreeBSD.org>
-# $FreeBSD: head/textproc/sassc/Makefile 360717 2014-07-05 03:23:35Z nivit $
+# $FreeBSD: head/textproc/sassc/Makefile 437439 2017-04-01 15:23:30Z gerald $
 
 PORTNAME=	sassc
-PORTVERSION=	3.3.6
+PORTVERSION=	3.4.5
 CATEGORIES=	textproc
 
 MAINTAINER=	nivit@FreeBSD.org
 COMMENT=	Wrapper around libsass
 
 LICENSE=	MIT
+LICENSE_FILE=	${WRKSRC}/LICENSE
 
-LIB_DEPENDS=	libsass.so.1:textproc/libsass
+RUN_DEPENDS=	libsass>=3.4.5:textproc/libsass
 
-AUTOMAKE_ARGS=	--add-missing
-CONFIGURE_ENV+=	SASSC_VERSION="${PORTVERSION}"
-
-CPPFLAGS+=	-I${LOCALBASE}/include
-
+USE_GITHUB=	yes
 GH_ACCOUNT=	sass
-GH_COMMIT=	e32c23d
 
-LDFLAGS+=	-L${LOCALBASE}/lib
+USES=		autoreconf compiler:c++11-lib gmake libtool localbase
+GNU_CONFIGURE=	yes
 
 PLIST_FILES=	bin/sassc
 
-USE_GITHUB=	yes
-USES=		autoreconf compiler:c++11-lib gmake:lite libtool
-GNU_CONFIGURE=	yes
-
 post-patch:
-	@echo "echo \"${PORTVERSION}+FreeBSD.${GH_COMMIT}\"" > ${WRKSRC}/version.sh
+	@${ECHO_CMD} "${ECHO_CMD} \"${PORTVERSION}\"" > ${WRKSRC}/version.sh
 
 .include <bsd.port.mk>
