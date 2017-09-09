@@ -11,7 +11,7 @@ COMMENT=	Wrapper around libsass
 LICENSE=	MIT
 LICENSE_FILE=	${WRKSRC}/LICENSE
 
-RUN_DEPENDS=	libsass>=3.4.5:textproc/libsass
+LIB_DEPENDS=	libsass.so:textproc/libsass
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	sass
