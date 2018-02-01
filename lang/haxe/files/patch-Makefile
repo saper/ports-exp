@@ -1,0 +1,158 @@
+--- Makefile.orig	2018-01-31 09:16:07 UTC
++++ Makefile
+@@ -10,7 +10,7 @@
+ #
+ .SUFFIXES : .ml .mli .cmo .cmi .cmx .mll .mly
+ 
+-INSTALL_DIR=$(DESTDIR)/usr
++INSTALL_DIR=$(DESTDIR)$(PREFIX)
+ INSTALL_BIN_DIR=$(INSTALL_DIR)/bin
+ INSTALL_LIB_DIR=$(INSTALL_DIR)/lib/haxe
+ INSTALL_STD_DIR=$(INSTALL_LIB_DIR)/std
+@@ -31,9 +31,9 @@ CFLAGS= -bin-annot
+ ALL_CFLAGS= $(CFLAGS) -g -w -3 -I libs/extlib -I libs/extc -I libs/neko -I libs/javalib -I libs/ziplib -I libs/swflib -I libs/xml-light -I libs/ttflib -I libs/ilib -I libs/objsize -I libs/pcre \
+ 	-I src -I src/context -I src/generators -I src/macro -I src/optimization -I src/syntax -I src/typing -I src/display
+ 
+-LIBS=unix str libs/extlib/extLib libs/xml-light/xml-light libs/swflib/swflib \
+-	libs/extc/extc libs/neko/neko libs/javalib/java libs/ziplib/zip \
+-	libs/ttflib/ttf libs/ilib/il libs/objsize/objsize libs/pcre/pcre
++LIBS=unix str libs/extlib/extlib libs/xml-light/xml-light libs/swflib/swflib \
++	libs/extc/extc libs/neko/neko libs/javalib/javalib libs/ziplib/ziplib \
++	libs/ttflib/ttflib libs/ilib/ilib libs/objsize/objsize libs/pcre/pcre
+ 
+ 
+ ifneq ($(STATICLINK),0)
+@@ -78,15 +78,9 @@ MODULES=json version globals path contex
+ 
+ ADD_REVISION?=0
+ 
+-BRANCH=$(shell echo $$APPVEYOR_REPO_NAME | grep -q /haxe && echo $$APPVEYOR_REPO_BRANCH || echo $$TRAVIS_REPO_SLUG | grep -q /haxe && echo $$TRAVIS_BRANCH || git rev-parse --abbrev-ref HEAD)
+-COMMIT_SHA=$(shell git rev-parse --short HEAD)
+-COMMIT_DATE=$(shell \
+-	if [ "$$(uname)" = "Darwin" ]; then \
+-		date -u -r $$(git show -s --format=%ct HEAD) +%Y%m%d%H%M%S; \
+-	else \
+-		date -u -d @$$(git show -s --format=%ct HEAD) +%Y%m%d%H%M%S; \
+-	fi \
+-)
++BRANCH=3.4_bugfix
++COMMIT_SHA=666f17e8
++COMMIT_DATE=20180131091607
+ PACKAGE_FILE_NAME=haxe_$(COMMIT_DATE)_$(COMMIT_SHA)
+ HAXE_VERSION=$(shell $(OUTPUT) -version 2>&1 | awk '{print $$1;}')
+ 
+@@ -100,17 +94,17 @@ endif
+ all: libs haxe tools
+ 
+ libs:
+-	make -C libs/extlib OCAMLOPT=$(OCAMLOPT) OCAMLC=$(OCAMLC) $(TARGET_FLAG)
+-	make -C libs/extc OCAMLOPT=$(OCAMLOPT) OCAMLC=$(OCAMLC) $(TARGET_FLAG)
+-	make -C libs/neko OCAMLOPT=$(OCAMLOPT) OCAMLC=$(OCAMLC) $(TARGET_FLAG)
+-	make -C libs/javalib OCAMLOPT=$(OCAMLOPT) OCAMLC=$(OCAMLC) $(TARGET_FLAG)
+-	make -C libs/ilib OCAMLOPT=$(OCAMLOPT) OCAMLC=$(OCAMLC) $(TARGET_FLAG)
+-	make -C libs/ziplib OCAMLOPT=$(OCAMLOPT) OCAMLC=$(OCAMLC) $(TARGET_FLAG)
+-	make -C libs/swflib OCAMLOPT=$(OCAMLOPT) OCAMLC=$(OCAMLC) $(TARGET_FLAG)
+-	make -C libs/xml-light OCAMLOPT=$(OCAMLOPT) OCAMLC=$(OCAMLC) $(TARGET_FLAG)
+-	make -C libs/ttflib OCAMLOPT=$(OCAMLOPT) OCAMLC=$(OCAMLC) $(TARGET_FLAG)
+-	make -C libs/objsize OCAMLOPT=$(OCAMLOPT) OCAMLC=$(OCAMLC) $(TARGET_FLAG)
+-	make -C libs/pcre OCAMLOPT=$(OCAMLOPT) OCAMLC=$(OCAMLC) $(TARGET_FLAG)
++	$(MAKE) -C libs/extlib OCAMLOPT=$(OCAMLOPT) OCAMLC=$(OCAMLC) $(TARGET_FLAG)
++	$(MAKE) -C libs/extc OCAMLOPT=$(OCAMLOPT) OCAMLC=$(OCAMLC) $(TARGET_FLAG)
++	$(MAKE) -C libs/neko OCAMLOPT=$(OCAMLOPT) OCAMLC=$(OCAMLC) $(TARGET_FLAG)
++	$(MAKE) -C libs/javalib OCAMLOPT=$(OCAMLOPT) OCAMLC=$(OCAMLC) $(TARGET_FLAG)
++	$(MAKE) -C libs/ilib OCAMLOPT=$(OCAMLOPT) OCAMLC=$(OCAMLC) $(TARGET_FLAG)
++	$(MAKE) -C libs/ziplib OCAMLOPT=$(OCAMLOPT) OCAMLC=$(OCAMLC) $(TARGET_FLAG)
++	$(MAKE) -C libs/swflib OCAMLOPT=$(OCAMLOPT) OCAMLC=$(OCAMLC) $(TARGET_FLAG)
++	$(MAKE) -C libs/xml-light OCAMLOPT=$(OCAMLOPT) OCAMLC=$(OCAMLC) $(TARGET_FLAG)
++	$(MAKE) -C libs/ttflib OCAMLOPT=$(OCAMLOPT) OCAMLC=$(OCAMLC) $(TARGET_FLAG)
++	$(MAKE) -C libs/objsize OCAMLOPT=$(OCAMLOPT) OCAMLC=$(OCAMLC) $(TARGET_FLAG)
++	$(MAKE) -C libs/pcre OCAMLOPT=$(OCAMLOPT) OCAMLC=$(OCAMLC) $(TARGET_FLAG)
+ 
+ haxe: $(MODULES:%=src/%.$(MODULE_EXT))
+ 	$(COMPILER) -o $(OUTPUT) $(NATIVE_LIBS) $(NATIVE_LIB_FLAG) $(LFLAGS) $(LIBS:=.$(LIB_EXT)) $(MODULES:%=src/%.$(MODULE_EXT))
+@@ -127,12 +121,12 @@ install: uninstall
+ 	cp -rf std $(INSTALL_STD_DIR)
+ 	cp -rf extra $(INSTALL_LIB_DIR)
+ 	cp haxe $(INSTALL_LIB_DIR)
+-	ln -s $(INSTALL_LIB_DIR)/haxe $(INSTALL_BIN_DIR)/haxe
++	ln -s ../lib/haxe/haxe $(INSTALL_BIN_DIR)/haxe
+ 	cp haxelib $(INSTALL_LIB_DIR)
+-	ln -s $(INSTALL_LIB_DIR)/haxelib $(INSTALL_BIN_DIR)/haxelib
++	ln -s ../lib/haxe/haxelib $(INSTALL_BIN_DIR)/haxelib
+ 	chmod -R a+rx $(INSTALL_LIB_DIR)
+ 	chmod 777 $(INSTALL_LIB_DIR)/lib
+-	chmod a+rx $(INSTALL_BIN_DIR)/haxe $(INSTALL_BIN_DIR)/haxelib
++	chmod a+rx $(INSTALL_LIB_DIR)/haxe $(INSTALL_LIB_DIR)/haxelib
+ 
+ # will install native version of the tools instead of script ones
+ install_tools: tools
+@@ -153,7 +147,7 @@ uninstall:
+ 
+ # context
+ 
+-src/context/common.$(MODULE_EXT): src/globals.$(MODULE_EXT) src/typing/type.$(MODULE_EXT) src/syntax/ast.$(MODULE_EXT) src/display/displayTypes.$(MODULE_EXT) libs/ilib/il.$(LIB_EXT)
++src/context/common.$(MODULE_EXT): src/globals.$(MODULE_EXT) src/typing/type.$(MODULE_EXT) src/syntax/ast.$(MODULE_EXT) src/display/displayTypes.$(MODULE_EXT) libs/ilib/ilib.$(LIB_EXT)
+ 
+ src/context/meta.$(MODULE_EXT): src/globals.$(MODULE_EXT)
+ 
+@@ -175,11 +169,11 @@ src/generators/codegen.$(MODULE_EXT): sr
+ 
+ src/generators/genas3.$(MODULE_EXT): src/typing/abstract.$(MODULE_EXT) src/globals.$(MODULE_EXT) src/context/meta.$(MODULE_EXT) src/typing/type.$(MODULE_EXT) src/context/common.$(MODULE_EXT) src/generators/codegen.$(MODULE_EXT) src/syntax/ast.$(MODULE_EXT)
+ 
+-src/generators/gencommon.$(MODULE_EXT): src/typing/abstract.$(MODULE_EXT) src/context/meta.$(MODULE_EXT) src/globals.$(MODULE_EXT) src/typing/error.$(MODULE_EXT) src/typing/overloads.$(MODULE_EXT) src/path.$(MODULE_EXT) src/typing/type.$(MODULE_EXT) src/context/common.$(MODULE_EXT) src/generators/codegen.$(MODULE_EXT) src/syntax/ast.$(MODULE_EXT) libs/ilib/il.$(LIB_EXT)
++src/generators/gencommon.$(MODULE_EXT): src/typing/abstract.$(MODULE_EXT) src/context/meta.$(MODULE_EXT) src/globals.$(MODULE_EXT) src/typing/error.$(MODULE_EXT) src/typing/overloads.$(MODULE_EXT) src/path.$(MODULE_EXT) src/typing/type.$(MODULE_EXT) src/context/common.$(MODULE_EXT) src/generators/codegen.$(MODULE_EXT) src/syntax/ast.$(MODULE_EXT) libs/ilib/ilib.$(LIB_EXT)
+ 
+ src/generators/gencpp.$(MODULE_EXT): src/typing/abstract.$(MODULE_EXT) src/globals.$(MODULE_EXT) src/context/meta.$(MODULE_EXT) src/path.$(MODULE_EXT) src/typing/type.$(MODULE_EXT) src/syntax/lexer.$(MODULE_EXT) src/context/common.$(MODULE_EXT) src/generators/codegen.$(MODULE_EXT) src/syntax/ast.$(MODULE_EXT)
+ 
+-src/generators/gencs.$(MODULE_EXT): src/typing/abstract.$(MODULE_EXT) src/globals.$(MODULE_EXT) src/context/meta.$(MODULE_EXT) src/path.$(MODULE_EXT) src/typing/type.$(MODULE_EXT) src/syntax/lexer.$(MODULE_EXT) src/generators/gencommon.$(MODULE_EXT) src/context/common.$(MODULE_EXT) src/generators/codegen.$(MODULE_EXT) src/syntax/ast.$(MODULE_EXT) libs/ilib/il.$(LIB_EXT)
++src/generators/gencs.$(MODULE_EXT): src/typing/abstract.$(MODULE_EXT) src/globals.$(MODULE_EXT) src/context/meta.$(MODULE_EXT) src/path.$(MODULE_EXT) src/typing/type.$(MODULE_EXT) src/syntax/lexer.$(MODULE_EXT) src/generators/gencommon.$(MODULE_EXT) src/context/common.$(MODULE_EXT) src/generators/codegen.$(MODULE_EXT) src/syntax/ast.$(MODULE_EXT) libs/ilib/ilib.$(LIB_EXT)
+ 
+ src/generators/genjava.$(MODULE_EXT): src/typing/abstract.$(MODULE_EXT) src/globals.$(MODULE_EXT) src/context/meta.$(MODULE_EXT) src/path.$(MODULE_EXT) src/typing/type.$(MODULE_EXT) src/generators/gencommon.$(MODULE_EXT) src/context/common.$(MODULE_EXT) src/generators/codegen.$(MODULE_EXT) src/syntax/ast.$(MODULE_EXT)
+ 
+@@ -211,7 +205,7 @@ src/generators/genxml.$(MODULE_EXT): src
+ 
+ # macro
+ 
+-src/macro/interp.$(MODULE_EXT): src/typing/abstract.$(MODULE_EXT) src/context/meta.$(MODULE_EXT) src/globals.$(MODULE_EXT) src/typing/error.$(MODULE_EXT) src/globals.$(MODULE_EXT) src/path.$(MODULE_EXT) src/typing/type.$(MODULE_EXT) src/syntax/lexer.$(MODULE_EXT) src/generators/genneko.$(MODULE_EXT) src/context/common.$(MODULE_EXT) src/generators/codegen.$(MODULE_EXT) src/syntax/ast.$(MODULE_EXT) src/generators/genswf.$(MODULE_EXT) src/generators/genjava.$(MODULE_EXT) src/generators/gencs.$(MODULE_EXT) src/syntax/parser.$(MODULE_EXT) libs/ilib/il.$(LIB_EXT) src/macro/macroApi.$(MODULE_EXT) libs/pcre/pcre.$(LIB_EXT)
++src/macro/interp.$(MODULE_EXT): src/typing/abstract.$(MODULE_EXT) src/context/meta.$(MODULE_EXT) src/globals.$(MODULE_EXT) src/typing/error.$(MODULE_EXT) src/globals.$(MODULE_EXT) src/path.$(MODULE_EXT) src/typing/type.$(MODULE_EXT) src/syntax/lexer.$(MODULE_EXT) src/generators/genneko.$(MODULE_EXT) src/context/common.$(MODULE_EXT) src/generators/codegen.$(MODULE_EXT) src/syntax/ast.$(MODULE_EXT) src/generators/genswf.$(MODULE_EXT) src/generators/genjava.$(MODULE_EXT) src/generators/gencs.$(MODULE_EXT) src/syntax/parser.$(MODULE_EXT) libs/ilib/ilib.$(LIB_EXT) src/macro/macroApi.$(MODULE_EXT) libs/pcre/pcre.$(LIB_EXT)
+ 
+ src/macro/macroContext.$(MODULE_EXT): src/typing/abstract.$(MODULE_EXT) src/context/meta.$(MODULE_EXT) src/globals.$(MODULE_EXT) src/typing/error.$(MODULE_EXT) src/optimization/optimizerTexpr.$(MODULE_EXT) src/typing/overloads.$(MODULE_EXT) src/path.$(MODULE_EXT) src/typing/typeload.$(MODULE_EXT) src/typing/typecore.$(MODULE_EXT) src/typing/type.$(MODULE_EXT) src/syntax/parser.$(MODULE_EXT) src/optimization/optimizer.$(MODULE_EXT) src/syntax/lexer.$(MODULE_EXT) src/macro/interp.$(MODULE_EXT) src/context/common.$(MODULE_EXT) src/generators/codegen.$(MODULE_EXT) src/syntax/ast.$(MODULE_EXT) src/optimization/filters.$(MODULE_EXT) src/generators/genjs.$(MODULE_EXT) src/display/display.$(MODULE_EXT) src/macro/hlmacro.$(MODULE_EXT) src/macro/macroApi.$(MODULE_EXT)
+ 
+@@ -268,7 +262,7 @@ src/typing/typer.$(MODULE_EXT): src/typi
+ 
+ # main
+ 
+-src/main.$(MODULE_EXT): src/context/meta.$(MODULE_EXT) src/globals.$(MODULE_EXT) src/typing/error.$(MODULE_EXT) src/globals.$(MODULE_EXT) src/path.$(MODULE_EXT) src/optimization/filters.$(MODULE_EXT) src/typing/matcher.$(MODULE_EXT) src/typing/typer.$(MODULE_EXT) src/typing/typeload.$(MODULE_EXT) src/typing/typecore.$(MODULE_EXT) src/typing/type.$(MODULE_EXT) src/syntax/parser.$(MODULE_EXT) src/optimization/optimizer.$(MODULE_EXT) src/syntax/lexer.$(MODULE_EXT) src/macro/interp.$(MODULE_EXT) src/generators/genxml.$(MODULE_EXT) src/generators/genswf.$(MODULE_EXT) src/generators/genphp.$(MODULE_EXT) src/generators/genphp7.$(MODULE_EXT) src/generators/genneko.$(MODULE_EXT) src/generators/genjs.$(MODULE_EXT) src/generators/genlua.$(MODULE_EXT) src/generators/gencpp.$(MODULE_EXT) src/generators/genas3.$(MODULE_EXT) src/context/common.$(MODULE_EXT) src/generators/codegen.$(MODULE_EXT) src/generators/genjava.$(MODULE_EXT) src/generators/gencs.$(MODULE_EXT) src/generators/genpy.$(MODULE_EXT) src/generators/genhl.$(MODULE_EXT) src/display/display.$(MODULE_EXT) src/server.$(MODULE_EXT) src/display/displayOutput.$(MODULE_EXT) libs/ilib/il.$(LIB_EXT)
++src/main.$(MODULE_EXT): src/context/meta.$(MODULE_EXT) src/globals.$(MODULE_EXT) src/typing/error.$(MODULE_EXT) src/globals.$(MODULE_EXT) src/path.$(MODULE_EXT) src/optimization/filters.$(MODULE_EXT) src/typing/matcher.$(MODULE_EXT) src/typing/typer.$(MODULE_EXT) src/typing/typeload.$(MODULE_EXT) src/typing/typecore.$(MODULE_EXT) src/typing/type.$(MODULE_EXT) src/syntax/parser.$(MODULE_EXT) src/optimization/optimizer.$(MODULE_EXT) src/syntax/lexer.$(MODULE_EXT) src/macro/interp.$(MODULE_EXT) src/generators/genxml.$(MODULE_EXT) src/generators/genswf.$(MODULE_EXT) src/generators/genphp.$(MODULE_EXT) src/generators/genphp7.$(MODULE_EXT) src/generators/genneko.$(MODULE_EXT) src/generators/genjs.$(MODULE_EXT) src/generators/genlua.$(MODULE_EXT) src/generators/gencpp.$(MODULE_EXT) src/generators/genas3.$(MODULE_EXT) src/context/common.$(MODULE_EXT) src/generators/codegen.$(MODULE_EXT) src/generators/genjava.$(MODULE_EXT) src/generators/gencs.$(MODULE_EXT) src/generators/genpy.$(MODULE_EXT) src/generators/genhl.$(MODULE_EXT) src/display/display.$(MODULE_EXT) src/server.$(MODULE_EXT) src/display/displayOutput.$(MODULE_EXT) libs/ilib/ilib.$(LIB_EXT)
+ 
+ src/globals.$(MODULE_EXT): src/version.$(MODULE_EXT)
+ 
+@@ -364,17 +358,17 @@ package_installer_mac: $(INSTALLER_TMP_D
+ clean: clean_libs clean_haxe clean_tools clean_package
+ 
+ clean_libs:
+-	make -C libs/extlib clean
+-	make -C libs/extc clean
+-	make -C libs/neko clean
+-	make -C libs/ziplib clean
+-	make -C libs/javalib clean
+-	make -C libs/ilib clean
+-	make -C libs/swflib clean
+-	make -C libs/xml-light clean
+-	make -C libs/ttflib clean
+-	make -C libs/objsize clean
+-	make -C libs/pcre clean
++	$(MAKE) -C libs/extlib clean
++	$(MAKE) -C libs/extc clean
++	$(MAKE) -C libs/neko clean
++	$(MAKE) -C libs/ziplib clean
++	$(MAKE) -C libs/javalib clean
++	$(MAKE) -C libs/ilib clean
++	$(MAKE) -C libs/swflib clean
++	$(MAKE) -C libs/xml-light clean
++	$(MAKE) -C libs/ttflib clean
++	$(MAKE) -C libs/objsize clean
++	$(MAKE) -C libs/pcre clean
+ 
+ clean_haxe:
+ 	rm -f -r  $(MODULES:%=src/%.obj) $(MODULES:%=src/%.o) $(MODULES:%=src/%.cmx) $(MODULES:%=src/%.cmi) $(MODULES:%=src/%.cmo) $(MODULES:%=src/%.cmt) src/syntax/lexer.ml src/version.ml $(OUTPUT)

@@ -1,0 +1,11 @@
+--- libs/sqlite/CMakeLists.txt.orig	2018-01-31 22:50:39 UTC
++++ libs/sqlite/CMakeLists.txt
+@@ -29,7 +29,7 @@ else()
+ 	add_library(sqlite.ndll MODULE sqlite.c)
+ 	pkg_check_modules(SQLITE3 REQUIRED sqlite3)
+ 	target_include_directories(sqlite.ndll PRIVATE ${SQLITE3_INCLUDEDIR} ${SQLITE3_INCLUDE_DIRS})
+-	target_link_libraries(sqlite.ndll libneko ${SQLITE3_LIBRARIES})
++	target_link_libraries(sqlite.ndll libneko ${SQLITE3_LDFLAGS} ${SQLITE3_LIBRARIES})
+ endif()
+ 
+ 

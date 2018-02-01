@@ -1,0 +1,7 @@
+TIMESTAMP = 1517442278
+SHA256 (HaxeFoundation-haxe-3.4.5_GH0.tar.gz) = c98083a86fd510e32304b4358f0a8db226acb1cb370406ad04a7462349a29782
+SIZE (HaxeFoundation-haxe-3.4.5_GH0.tar.gz) = 7034268
+SHA256 (HaxeFoundation-haxelib-eeac8f4e_GH0.tar.gz) = feea3cfae5c405a1447f4c1f6aec9b41283942ade2f372e9e30d126b5833e559
+SIZE (HaxeFoundation-haxelib-eeac8f4e_GH0.tar.gz) = 306636
+SHA256 (HaxeFoundation-ocamllibs-11b32924_GH0.tar.gz) = 6a18d4a0f53f11ffa91ff5de32a66b9c47acba3d2736746351633b46b59a2b42
+SIZE (HaxeFoundation-ocamllibs-11b32924_GH0.tar.gz) = 282519
