@@ -22,6 +22,15 @@
  
  
  ifneq ($(STATICLINK),0)
+@@ -44,7 +44,7 @@ LIB_PARAMS?= -cclib -lpcre -cclib -lz
+ 
+ endif
+ 
+-NATIVE_LIBS=-cclib libs/extc/extc_stubs.o -cclib libs/extc/process_stubs.o -cclib libs/objsize/c_objsize.o -cclib libs/pcre/pcre_stubs.o -ccopt -L/usr/local/lib $(LIB_PARAMS)
++NATIVE_LIBS=-cclib libs/extc/extc_stubs.o -cclib libs/extc/process_stubs.o -cclib libs/objsize/c_objsize.o -cclib libs/pcre/pcre_stubs.o -ccopt -L$(LOCALBASE)/lib $(LIB_PARAMS)
+ 
+ ifeq ($(BYTECODE),1)
+ 	TARGET_FLAG = bytecode
 @@ -78,15 +78,9 @@ MODULES=json version globals path contex
  
  ADD_REVISION?=0
