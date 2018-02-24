@@ -60,4 +60,7 @@ do-install:
 	(cd ${STAGEDIR}${PREFIX} && ${FIND} lib/node_modules/${PORTNAME}/vendor -type f >> ${TMPPLIST} )
 	${LN} -s ${PREFIX}/lib/node_modules/node-sass/bin/node-sass ${STAGEDIR}${PREFIX}/bin/node-sass
 
+test:
+	(cd ${WRKSRC} && npm test)
+
 .include <bsd.port.post.mk>
