@@ -28,7 +28,7 @@ USE_OCAML_CAMLP4=	yes
 MAKE_JOBS_UNSAFE=	yes
 
 post-patch:
-	${REINPLACE_CMD} 's|/usr/local|${PREFIX}/local|g' \
+	${REINPLACE_CMD} 's|/usr/local|${PREFIX}|g' \
 		${WRKSRC}/src/generators/genneko.ml \
 		${WRKSRC}/std/neko/_std/sys/ssl/Certificate.hx \
 		${WRKSRC}/std/haxe/io/Path.hx \
