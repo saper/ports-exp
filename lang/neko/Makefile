@@ -29,4 +29,11 @@ USE_APACHE_BUILD=	22+
 
 MAKE_JOBS_UNSAFE=yes
 
+post-patch:
+	${REINPLACE_CMD} 's|/usr/local|${PREFIX}|g' \
+		${WRKSRC}/vm/load.c
+	${REINPLACE_CMD} 's|/usr/local|${LOCALBASE}|g' \
+		${WRKSRC}/cmake/FindGTK2.cmake \
+		${WRKSRC}/cmake/FindAPACHE.cmake
+
 .include <bsd.port.mk>
