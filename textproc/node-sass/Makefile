@@ -2,9 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	node-sass
-PORTVERSION=	4.5.3
-#PORTREVISION=	0
-#PORTEPOCH=	0
+PORTVERSION=	4.7.2
 DISTVERSIONPREFIX=	v
 CATEGORIES=	textproc www
 
@@ -44,7 +42,7 @@ MAKE_ENV+=	GYP_DEFINES=clang=1
 post-fetch:
 	${MKDIR} ${DISTDIR}/${PORTNAME}
 	${MKDIR} ${NPM_CACHE}
-	${CP} ${FILESDIR}/npm-shrinkwrap.json ${DISTDIR}/${PORTNAME}
+	${CP} ${FILESDIR}/package-lock.json ${DISTDIR}/${PORTNAME}
 	${CP} ${FILESDIR}/package.json ${DISTDIR}/${PORTNAME}
 	(cd ${DISTDIR}/${PORTNAME} && ${SETENV} NPM_CONFIG_CACHE=${NPM_CACHE} npm install --ignore-scripts)
 
