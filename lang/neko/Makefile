@@ -1,7 +1,8 @@
 # $FreeBSD: head/lang/neko/Makefile 430235 2017-01-01 03:45:12Z sunpoet $
 
 PORTNAME=	neko
-PORTVERSION=	2.2.0
+DISTVERSIONPREFIX=	v
+DISTVERSION=	2-2-0
 CATEGORIES=	lang
 
 MAINTAINER=	penzin.dev@gmail.com
@@ -21,8 +22,6 @@ USES=		cmake pkgconfig sqlite:3 mysql
 USE_GNOME=	atk cairo gdkpixbuf2 glib20 gtk20 pango
 USE_GITHUB=	yes
 GH_ACCOUNT=	HaxeFoundation
-# GH_PROJECT is the same as port name
-GH_TAGNAME=	v${PORTVERSION:S/./-/g}
 
 USE_LDCONFIG=	${PREFIX}/lib ${PREFIX}/lib/neko
 USE_APACHE_BUILD=	22+
