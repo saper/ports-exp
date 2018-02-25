@@ -27,7 +27,6 @@ lib/haxe/extra/haxelib_src/.vscode/tasks.json
 lib/haxe/extra/haxelib_src/CHANGES.md
 lib/haxe/extra/haxelib_src/CMakeLists.txt
 lib/haxe/extra/haxelib_src/Dockerfile
-lib/haxe/extra/haxelib_src/Dockerrun.aws.json
 lib/haxe/extra/haxelib_src/README.md
 lib/haxe/extra/haxelib_src/apache2.conf
 lib/haxe/extra/haxelib_src/appveyor.yml
@@ -142,6 +141,7 @@ lib/haxe/extra/haxelib_src/test/website/controller/RSSControllerTest.hx
 lib/haxe/extra/haxelib_src/test/website/controller/UserControllerTest.hx
 lib/haxe/extra/haxelib_src/www/.htaccess
 lib/haxe/extra/haxelib_src/www/bower.json
+lib/haxe/extra/haxelib_src/www/css/haxe-nav.css
 lib/haxe/extra/haxelib_src/www/css/haxelib.css
 lib/haxe/extra/haxelib_src/www/css/style.css
 lib/haxe/extra/haxelib_src/www/dbconfig.json
@@ -170,6 +170,7 @@ lib/haxe/extra/haxelib_src/www/view/home/homepage.html
 lib/haxe/extra/haxelib_src/www/view/home/projectList.html
 lib/haxe/extra/haxelib_src/www/view/home/search.html
 lib/haxe/extra/haxelib_src/www/view/home/tagList.html
+lib/haxe/extra/haxelib_src/www/view/home/tagProjectList.html
 lib/haxe/extra/haxelib_src/www/view/layout.html
 lib/haxe/extra/haxelib_src/www/view/project/docs.html
 lib/haxe/extra/haxelib_src/www/view/project/file.html

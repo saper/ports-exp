@@ -1,7 +1,7 @@
 # $FreeBSD$
 
 PORTNAME=	haxe
-PORTVERSION=	3.4.5
+PORTVERSION=	3.4.7
 CATEGORIES=	lang
 
 MAINTAINER=	saper@saper.info
@@ -18,7 +18,7 @@ USES=		gmake
 USE_GITHUB=	yes
 GH_ACCOUNT=	HaxeFoundation
 GH_PROJECT=	haxelib:haxelib ocamllibs:ocamllibs
-GH_TAGNAME=	${PORTVERSION} eeac8f4e:haxelib 11b32924:ocamllibs
+GH_TAGNAME=	${PORTVERSION} a494d8be:haxelib 11b32924:ocamllibs
 GH_SUBDIR=	extra/haxelib_src:haxelib libs:ocamllibs
 
 USE_OCAML=		yes
