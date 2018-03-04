@@ -1,19 +1,18 @@
-# Created by: saper@saper.info
-# $FreeBSD$
+# $FreeBSD: head/converters/py-webencodings/Makefile 463559 2018-03-04 09:10:41Z yuri $
 
 PORTNAME=	webencodings
-PORTVERSION=	0.5.1
-CATEGORIES=	converters python
+DISTVERSION=	0.5.1
+CATEGORIES=	converters www python
 MASTER_SITES=	CHEESESHOP
 PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}
 
 MAINTAINER=	saper@saper.info
-COMMENT=	Python implementation of the WHATWG Encoding standard
+COMMENT=	Character encoding aliases for legacy web content
 
 LICENSE=	BSD3CLAUSE
 
-NO_ARCH=	yes
 USES=		python
-USE_PYTHON=	autoplist distutils
+USE_PYTHON=	distutils autoplist
+NO_ARCH=	yes
 
 .include <bsd.port.mk>
