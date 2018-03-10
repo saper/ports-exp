@@ -16,7 +16,7 @@ FETCH_DEPENDS=	npm>=0:${PORTSDIR}/www/npm
 BUILD_DEPENDS=	npm>=0:${PORTSDIR}/www/npm
 RUN_DEPENDS=	npm>=0:${PORTSDIR}/www/npm
 
-USES=		compiler:c++11-lib gmake python:2.7
+USES=		compiler:c++11-lib gmake python:2.7 shebangfix
 
 GH_ACCOUNT=	sass
 
@@ -32,31 +32,43 @@ MAKE_ENV+=	NPM_CONFIG_NODEDIR=${LOCALBASE}/include/node
 
 MANDIRS+=	${PREFIX}/lib/node_modules/node-sass/node_modules/sshpk/man/man1
 
-NPM_CACHE=	${DISTDIR}/npm
+SHEBANG_GLOB=	lib/node_modules/${PORTNAME}/node_modules/node-gyp/gyp -name '*.py'
+
+DIST_NPM_CACHE=	${DISTDIR}/npm
+BUILD_NPM_CACHE=	${WRKDIR}/npm
 
 .include <bsd.port.pre.mk>
 .if ${COMPILER_TYPE} == clang
 MAKE_ENV+=	GYP_DEFINES=clang=1
 .endif
 
-post-fetch:
+fetch-specials:
 	${MKDIR} ${DISTDIR}/${PORTNAME}
-	${MKDIR} ${NPM_CACHE}
-	${CP} ${FILESDIR}/package-lock.json ${DISTDIR}/${PORTNAME}
-	${CP} ${FILESDIR}/package.json ${DISTDIR}/${PORTNAME}
-	(cd ${DISTDIR}/${PORTNAME} && ${SETENV} NPM_CONFIG_CACHE=${NPM_CACHE} npm install --ignore-scripts)
+	${MKDIR} ${DIST_NPM_CACHE}
+	if [ ! -f ${DISTDIR}/${PORTNAME}/package-lock.json ]; then ${CP} ${FILESDIR}/package-lock.json ${DISTDIR}/${PORTNAME}; \
+		${CP} ${FILESDIR}/package.json ${DISTDIR}/${PORTNAME}; \
+		(cd ${DISTDIR}/${PORTNAME} && ${SETENV} NPM_CONFIG_CACHE=${DIST_NPM_CACHE} npm install --ignore-scripts) \
+	fi
 
 post-extract:
-	(cd ${DISTDIR}/${PORTNAME} && ${FIND} node_modules | ${PAX} -rw ${WRKSRC})
+	(cd ${DISTDIR}/${PORTNAME} && find node_modules | ${PAX} -rw ${WRKSRC})
+	${MKDIR} ${BUILD_NPM_CACHE}
+	(cd ${DIST_NPM_CACHE} && find . | ${PAX} -rw ${BUILD_NPM_CACHE})
 
 do-build:
-	(cd ${WRKSRC} && ${SETENV} ${CONFIGURE_ENV} ${MAKE_ENV} NPM_CONFIG_CACHE=${NPM_CACHE} npm install --nodedir=${LOCALBASE})
+	(cd ${WRKSRC} && ${SETENV} ${CONFIGURE_ENV} ${MAKE_ENV} NPM_CONFIG_CACHE=${BUILD_NPM_CACHE} npm install --nodedir=${LOCALBASE})
 
 do-install:
 	${MKDIR} ${STAGEDIR}${PREFIX}/lib/node_modules/${PORTNAME}
-	(cd ${WRKSRC} && ${FIND} . -type f -o -type l | ${GREP} -v '^./build' | ${PAX} -rw ${STAGEDIR}${PREFIX}/lib/node_modules/${PORTNAME})
+	(cd ${WRKSRC} && ${FIND} . -type f -o -type l | \
+		${GREP} -v '^./build' | \
+		${GREP} -v 'libsass/script' | \
+		${GREP} -v 'gyp/samples' | \
+		${GREP} -v 'node-gyp/test/docker.sh' | \
+		${PAX} -rw ${STAGEDIR}${PREFIX}/lib/node_modules/${PORTNAME})
 	(cd ${STAGEDIR}${PREFIX} && ${FIND} lib/node_modules/${PORTNAME}/vendor -type f >> ${TMPPLIST} )
-	${LN} -s ${PREFIX}/lib/node_modules/node-sass/bin/node-sass ${STAGEDIR}${PREFIX}/bin/node-sass
+	${STRIP_CMD} ${STAGEDIR}${PREFIX}/lib/node_modules/${PORTNAME}/vendor/*/binding.node 
+	${LN} -s ../lib/node_modules/node-sass/bin/node-sass ${STAGEDIR}${PREFIX}/bin/node-sass
 
 test:
 	(cd ${WRKSRC} && npm test)
