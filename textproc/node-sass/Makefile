@@ -12,9 +12,9 @@ COMMENT=	C/C++ Sass compiler bindings for nodejs
 LICENSE=	MIT
 
 LIB_DEPENDS=	libsass.so.1:textproc/libsass35
-FETCH_DEPENDS=	npm>=0:${PORTSDIR}/www/npm
-BUILD_DEPENDS=	npm>=0:${PORTSDIR}/www/npm
-RUN_DEPENDS=	npm>=0:${PORTSDIR}/www/npm
+FETCH_DEPENDS=	npm>=0:www/npm
+BUILD_DEPENDS=	npm>=0:www/npm
+RUN_DEPENDS=	npm>=0:www/npm
 
 USES=		compiler:c++11-lib gmake python:2.7 shebangfix
 
@@ -47,7 +47,7 @@ fetch-specials:
 	${MKDIR} ${DIST_NPM_CACHE}
 	if [ ! -f ${DISTDIR}/${PORTNAME}/package-lock.json ]; then ${CP} ${FILESDIR}/package-lock.json ${DISTDIR}/${PORTNAME}; \
 		${CP} ${FILESDIR}/package.json ${DISTDIR}/${PORTNAME}; \
-		(cd ${DISTDIR}/${PORTNAME} && ${SETENV} NPM_CONFIG_CACHE=${DIST_NPM_CACHE} npm install --ignore-scripts) \
+		(cd ${DISTDIR}/${PORTNAME} && ${SETENV} NPM_CONFIG_CACHE=${DIST_NPM_CACHE} npm install --ignore-scripts --production) \
 	fi
 
 post-extract:
@@ -56,7 +56,7 @@ post-extract:
 	(cd ${DIST_NPM_CACHE} && find . | ${PAX} -rw ${BUILD_NPM_CACHE})
 
 do-build:
-	(cd ${WRKSRC} && ${SETENV} ${CONFIGURE_ENV} ${MAKE_ENV} NPM_CONFIG_CACHE=${BUILD_NPM_CACHE} npm install --nodedir=${LOCALBASE})
+	(cd ${WRKSRC} && ${SETENV} ${CONFIGURE_ENV} ${MAKE_ENV} NPM_CONFIG_CACHE=${BUILD_NPM_CACHE} npm install --nodedir=${LOCALBASE} --production)
 
 do-install:
 	${MKDIR} ${STAGEDIR}${PREFIX}/lib/node_modules/${PORTNAME}
