@@ -5,6 +5,7 @@ lib/node_modules/node-sass/.gitattributes
 lib/node_modules/node-sass/.github/CONTRIBUTING.md
 lib/node_modules/node-sass/.github/ISSUE_TEMPLATE.md
 lib/node_modules/node-sass/.gitignore
+lib/node_modules/node-sass/.mailmap
 lib/node_modules/node-sass/.travis.yml
 lib/node_modules/node-sass/CHANGELOG.md
 lib/node_modules/node-sass/LICENSE
@@ -2796,6 +2797,7 @@ lib/node_modules/node-sass/src/libsass/test/test_superselector.cpp
 lib/node_modules/node-sass/src/libsass/test/test_unification.cpp
 lib/node_modules/node-sass/src/libsass/version.sh
 lib/node_modules/node-sass/src/libsass/win/libsass.sln
+lib/node_modules/node-sass/src/libsass/win/libsass.sln.DotSettings
 lib/node_modules/node-sass/src/libsass/win/libsass.targets
 lib/node_modules/node-sass/src/libsass/win/libsass.vcxproj
 lib/node_modules/node-sass/src/libsass/win/libsass.vcxproj.filters
