@@ -2,7 +2,7 @@
 # $FreeBSD: head/textproc/libsass/Makefile 461396 2018-02-10 14:48:29Z nivit $
 
 PORTNAME=	libsass
-PORTVERSION=	3.5.0.b2
+PORTVERSION=	3.5.0
 CATEGORIES=	textproc
 
 MAINTAINER=	nivit@FreeBSD.org
@@ -16,7 +16,6 @@ CONFLICTS=	libsass-3.[^5].*
 INSTALL_TARGET=	install-strip
 
 GH_ACCOUNT=	sass
-GH_TAGNAME=	3.5.0.beta.2
 GNU_CONFIGURE=	yes
 
 MAKEFILE=	GNUmakefile
