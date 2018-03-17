@@ -2741,6 +2741,7 @@ lib/node_modules/node-sass/src/libsass/src/ast_fwd_decl.cpp
 lib/node_modules/node-sass/src/libsass/src/ast_fwd_decl.hpp
 lib/node_modules/node-sass/src/libsass/src/b64/cencode.h
 lib/node_modules/node-sass/src/libsass/src/b64/encode.h
+lib/node_modules/node-sass/src/libsass/src/backtrace.cpp
 lib/node_modules/node-sass/src/libsass/src/backtrace.hpp
 lib/node_modules/node-sass/src/libsass/src/base64vlq.cpp
 lib/node_modules/node-sass/src/libsass/src/base64vlq.hpp
@@ -2791,6 +2792,8 @@ lib/node_modules/node-sass/src/libsass/src/memory/SharedPtr.hpp
 lib/node_modules/node-sass/src/libsass/src/node.cpp
 lib/node_modules/node-sass/src/libsass/src/node.hpp
 lib/node_modules/node-sass/src/libsass/src/operation.hpp
+lib/node_modules/node-sass/src/libsass/src/operators.cpp
+lib/node_modules/node-sass/src/libsass/src/operators.hpp
 lib/node_modules/node-sass/src/libsass/src/output.cpp
 lib/node_modules/node-sass/src/libsass/src/output.hpp
 lib/node_modules/node-sass/src/libsass/src/parser.cpp

@@ -2,7 +2,7 @@
 # $FreeBSD: head/textproc/libsass/Makefile 461396 2018-02-10 14:48:29Z nivit $
 
 PORTNAME=	libsass
-PORTVERSION=	3.5.1
+PORTVERSION=	3.5.2
 CATEGORIES=	textproc
 
 MAINTAINER=	nivit@FreeBSD.org
