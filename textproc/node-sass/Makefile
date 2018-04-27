@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	node-sass
-PORTVERSION=	4.8.3
+PORTVERSION=	4.9.0
 DISTVERSIONPREFIX=	v
 CATEGORIES=	textproc www
 

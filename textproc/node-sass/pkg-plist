@@ -129,8 +129,6 @@ lib/node_modules/node-sass/node_modules/aws-sign2/LICENSE
 lib/node_modules/node-sass/node_modules/aws-sign2/README.md
 lib/node_modules/node-sass/node_modules/aws-sign2/index.js
 lib/node_modules/node-sass/node_modules/aws-sign2/package.json
-lib/node_modules/node-sass/node_modules/aws4/.npmignore
-lib/node_modules/node-sass/node_modules/aws4/.tern-port
 lib/node_modules/node-sass/node_modules/aws4/.travis.yml
 lib/node_modules/node-sass/node_modules/aws4/LICENSE
 lib/node_modules/node-sass/node_modules/aws4/README.md
@@ -2267,12 +2265,11 @@ lib/node_modules/node-sass/node_modules/rimraf/README.md
 lib/node_modules/node-sass/node_modules/rimraf/bin.js
 lib/node_modules/node-sass/node_modules/rimraf/package.json
 lib/node_modules/node-sass/node_modules/rimraf/rimraf.js
-lib/node_modules/node-sass/node_modules/safe-buffer/.travis.yml
 lib/node_modules/node-sass/node_modules/safe-buffer/LICENSE
 lib/node_modules/node-sass/node_modules/safe-buffer/README.md
+lib/node_modules/node-sass/node_modules/safe-buffer/index.d.ts
 lib/node_modules/node-sass/node_modules/safe-buffer/index.js
 lib/node_modules/node-sass/node_modules/safe-buffer/package.json
-lib/node_modules/node-sass/node_modules/safe-buffer/test.js
 lib/node_modules/node-sass/node_modules/sass-graph/CHANGELOG.md
 lib/node_modules/node-sass/node_modules/sass-graph/bin/sassgraph
 lib/node_modules/node-sass/node_modules/sass-graph/package.json
@@ -2411,7 +2408,7 @@ lib/node_modules/node-sass/node_modules/string-width/index.js
 lib/node_modules/node-sass/node_modules/string-width/license
 lib/node_modules/node-sass/node_modules/string-width/package.json
 lib/node_modules/node-sass/node_modules/string-width/readme.md
-lib/node_modules/node-sass/node_modules/string_decoder/.npmignore
+lib/node_modules/node-sass/node_modules/string_decoder/.travis.yml
 lib/node_modules/node-sass/node_modules/string_decoder/LICENSE
 lib/node_modules/node-sass/node_modules/string_decoder/README.md
 lib/node_modules/node-sass/node_modules/string_decoder/lib/string_decoder.js
