@@ -1,0 +1,8 @@
+VF-1 is built around an interactive command prompt, and has a very "REPL"
+feeling.  You only need a small number of commands to get around,
+and most of them can be abbreviated to one or two chars, so with practice
+you can get around very quickly.
+
+You can safely unplug your mouse the entire time you are using VF-1.
+
+WWW: https://github.com/solderpunk/VF-1
