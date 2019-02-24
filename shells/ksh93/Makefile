@@ -18,11 +18,9 @@ DISTFILES=	INIT.${INITVERSION}.tgz ast-ksh.${KSHVERSION}.tgz
 DIST_SUBDIR=	${PORTNAME}
 
 MAINTAINER=	saper@saper.info
-COMMENT=	KornShell 93
+COMMENT=	Official AT&T release of KornShell 93
 
 LICENSE=	EPL
-
-BROKEN_aarch64=	Fails to link: missing sbrk
 
 OPTIONS_DEFINE=	EXAMPLES STATIC
 
@@ -31,7 +29,7 @@ MAKE_ENV=	CCFLAGS="-Wno-unused-value -Wno-parentheses -Wno-logical-op-parenthese
 NO_WRKSUBDIR=	yes
 
 INITVERSION=	2014-12-24
-KSHVERSION=	2018-05-20
+KSHVERSION=	2016-07-16
 
 STATIC_MAKE_ENV=	LDFLAGS+=-static
 
