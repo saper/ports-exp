@@ -13,12 +13,12 @@
 PORTNAME=	ksh93
 PORTVERSION=	${KSHVERSION:S/-//g}
 CATEGORIES=	shells
-MASTER_SITES=	https://distfile.net/local-ports-distfiles/
-DISTFILES=	INIT.${INITVERSION}.tgz ast-ksh.${KSHVERSION}.tgz
+MASTER_SITES=	https://github.com/att/ast/archive/
+DISTFILES=	${PORTNAME}v.tar.gz
 DIST_SUBDIR=	${PORTNAME}
 
 MAINTAINER=	saper@saper.info
-COMMENT=	Official AT&T release of KornShell 93
+COMMENT=	KornShell 93
 
 LICENSE=	EPL
 
@@ -26,10 +26,9 @@ OPTIONS_DEFINE=	EXAMPLES STATIC
 
 LDFLAGS+=	-lm
 MAKE_ENV=	CCFLAGS="-Wno-unused-value -Wno-parentheses -Wno-logical-op-parentheses ${CFLAGS}"
-NO_WRKSUBDIR=	yes
+WRKSRC=		${WRKDIR}/ast-${PORTNAME}v
 
-INITVERSION=	2014-12-24
-KSHVERSION=	2016-07-16
+KSHVERSION=	2014-12-24
 
 STATIC_MAKE_ENV=	LDFLAGS+=-static
 
