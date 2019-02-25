@@ -1,6 +1,6 @@
---- src/cmd/INIT/iffe.sh.orig	2013-03-06 16:33:17 UTC
+--- src/cmd/INIT/iffe.sh.orig	2016-02-28 17:09:22 UTC
 +++ src/cmd/INIT/iffe.sh
-@@ -3414,7 +3414,7 @@ $src
+@@ -3446,7 +3446,7 @@ $src
  						(eval "$src") <&$nullin || e=1
  						;;
  					mac*|nomac*)
@@ -9,7 +9,7 @@
  						then	sed -e '/<<[ 	]*".*"[ 	]*>>/!d' -e 's/<<[ 	]*"//g' -e 's/"[ 	]*>>//g' $tmp.i
  						else	e=1
  						fi
-@@ -3705,7 +3705,7 @@ $inc
+@@ -3737,7 +3737,7 @@ $inc
  <<\"#define $v\">>	$v	<<\"/* native $v */\">>
  <<\"#endif\">>
  #endif" > $tmp.c
