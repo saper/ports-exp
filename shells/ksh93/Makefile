@@ -22,6 +22,8 @@ COMMENT=	KornShell 93
 
 LICENSE=	EPL
 
+CONFLICTS=	ksh93-devel-*
+
 OPTIONS_DEFINE=	EXAMPLES STATIC
 
 LDFLAGS+=	-lm
@@ -32,12 +34,10 @@ KSHVERSION=	2014-12-24
 
 STATIC_MAKE_ENV=	LDFLAGS+=-static
 
-.include <bsd.port.pre.mk>
+BROKEN_aarch64=		Fails to compile: needs sbrk
 
 post-patch:
-.if ${OPSYS} == FreeBSD && ${OSVERSION} >= 1100093
 	@${REINPLACE_CMD} -e 's|SF_FLAGS|SFIO_FLAGS|g' ${WRKSRC}/src/lib/libast/include/sfio*.h ${WRKSRC}/src/lib/libast/sfio/*.c
-.endif
 
 do-build:
 	@cd ${WRKSRC}/ && ${SETENV} -i ${MAKE_ENV} ${SH} bin/package flat make ksh93
@@ -51,4 +51,4 @@ do-install:
 do-test:
 	cd ${WRKSRC}/src/cmd/ksh93/tests/ && ${SETENV} SHELL=${WRKSRC}/bin/ksh ${WRKSRC}/bin/ksh shtests
 
-.include <bsd.port.post.mk>
+.include <bsd.port.mk>
