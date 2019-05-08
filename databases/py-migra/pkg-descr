@@ -1,0 +1,9 @@
+migra is a schema diff tool for PostgreSQL, written in Python.
+Use it in your python scripts, or from the command line to:
+
+ * compare schemas
+ * autogenerate migration scripts
+ * autosync your development database from your application models
+ * make your schema changes testable, robust, and (mostly) automatic
+
+WWW: https://migra.djrobstep.com/

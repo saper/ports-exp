@@ -1,0 +1,9 @@
+Schema inspection for PostgreSQL
+
+Inspects tables, views, materialized views, constraints,
+indexes, sequences, enums, functions, and extensions.
+
+Limitations: Function inspection only confirmed to work with
+SQL/PLPGSQL languages so far.
+
+WWW: https://github.com/djrobstep/schemainspect

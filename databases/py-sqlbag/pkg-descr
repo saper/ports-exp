@@ -1,0 +1,4 @@
+Connections, flask setup, SQLAlchemy ORM helpers, temporary database
+setup and teardown (handy for integration tests).
+
+WWW: https://github.com/djrobstep/sqlbag
