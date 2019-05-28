@@ -13,7 +13,8 @@ COMMENT=	This is just a collection of handy code for doing database things.
 LICENSE=	UNLICENSE
 
 RUN_DEPENDS=	${PYTHON_PKGNAMEPREFIX}six>=0:devel/py-six@${PY_FLAVOR} \
-		${PYTHON_PKGNAMEPREFIX}sqlalchemy12>=0.8:databases/py-sqlalchemy12@${PY_FLAVOR}
+		${PY_PATHLIB} \
+		${PYTHON_PKGNAMEPREFIX}sqlalchemy>=0.8:databases/py-sqlalchemy@${PY_FLAVOR}
 
 USES=		python
 USE_PYTHON=	distutils autoplist
