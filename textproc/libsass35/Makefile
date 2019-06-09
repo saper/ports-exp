@@ -2,8 +2,9 @@
 # $FreeBSD: head/textproc/libsass/Makefile 461396 2018-02-10 14:48:29Z nivit $
 
 PORTNAME=	libsass
-PORTVERSION=	3.5.4
+PORTVERSION=	3.5.5
 CATEGORIES=	textproc
+PKGNAMESUFFIX=	35
 
 MAINTAINER=	nivit@FreeBSD.org
 COMMENT=	C/C++ implementation of a Sass compiler
