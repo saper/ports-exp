@@ -10,7 +10,7 @@
 # program.  If you are really unconvinced, go ahead but do not
 # complain to me about it.
 
-PORTNAME=	ksh93
+PORTNAME=	ast-ksh
 PORTVERSION=	${KSHVERSION:S/-//g}
 CATEGORIES=	shells
 MASTER_SITES=	https://github.com/att/ast/archive/
