@@ -2,7 +2,7 @@
 # $FreeBSD: head/net-im/openfire/Makefile 492302 2019-02-06 13:20:08Z gahr $
 
 PORTNAME=	openfire
-PORTVERSION=	4.2.3
+PORTVERSION=	4.3.2
 PORTREVISION=	0
 PORTEPOCH=	1
 CATEGORIES=	net-im java
@@ -13,7 +13,7 @@ MAINTAINER=	ports@FreeBSD.org
 COMMENT=	Enterprise instant messaging server
 
 LICENSE=	APACHE20
-LICENSE_FILE=	${WRKSRC}/LICENSE.html
+LICENSE_FILE=	${WRKSRC}/LICENSE.txt
 
 RUN_DEPENDS=	slf4j>=1.7.7:devel/slf4j
 
@@ -22,8 +22,7 @@ OPTIONS_DEFAULT=PLUGINS
 OPTIONS_SUB=	yes
 PLUGINS_DESC=	Install bundled plugins
 
-USES=		cpe dos2unix
-DOS2UNIX_FILES=	src/java/org/jivesoftware/openfire/server/ServerDialback.java
+USES=		cpe
 USE_LDCONFIG=	yes
 USE_ANT=	yes
 USE_JAVA=	yes
@@ -36,7 +35,7 @@ ALL_TARGET=	${PORTNAME}
 USE_RC_SUBR=	${PORTNAME}
 SUB_FILES+=	pkg-message
 
-WRKSRC=		${WRKDIR}/${PORTNAME}_src
+WRKSRC=		${WRKDIR}/Openfire-${PORTVERSION}
 BUILD_WRKSRC=	${WRKSRC}/build
 INSTALL_WRKSRC=	${WRKSRC}/target/${PORTNAME}
 DATADIR=	${JAVASHAREDIR}/${PORTNAME}
