@@ -39,10 +39,10 @@ SHEBANG_GLOB=	*.py
 SHEBANG_FILES=	lib/node_modules/npm/node_modules/node-gyp/gyp/samples/samples
 
 NODE_RUN_DEPENDS=	node>=0.8.0:www/node
-NODE12_RUN_DEPENDS=	node10>=0.8.0:www/node12
+NODE12_RUN_DEPENDS=	node12>=0.8.0:www/node12
 NODE10_RUN_DEPENDS=	node10>=0.8.0:www/node10
 NODE8_RUN_DEPENDS=	node8>=0.8.0:www/node8
-NODE6_RUN_DEPENDS=	node8>=0.8.0:www/node6
+NODE6_RUN_DEPENDS=	node6>=0.8.0:www/node6
 
 .include <bsd.port.pre.mk>
 
