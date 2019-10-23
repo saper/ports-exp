@@ -5,7 +5,6 @@ lib/node_modules/node-sass/.gitattributes
 lib/node_modules/node-sass/.github/CONTRIBUTING.md
 lib/node_modules/node-sass/.github/ISSUE_TEMPLATE/Bug_report.md
 lib/node_modules/node-sass/.github/ISSUE_TEMPLATE/Feature_request.md
-lib/node_modules/node-sass/.github/PULL_REQUEST_TEMPLATE.md
 lib/node_modules/node-sass/.gitignore
 lib/node_modules/node-sass/.mailmap
 lib/node_modules/node-sass/.travis.yml
