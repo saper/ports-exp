@@ -99,4 +99,7 @@ post-configure:
 post-install:
 	${STRIP_CMD} ${STAGEDIR}${PREFIX}/bin/node
 
+do-test:
+	${MAKE} test-only
+
 .include <bsd.port.mk>
