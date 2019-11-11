@@ -14,8 +14,8 @@ COMMENT=	Enterprise instant messaging server
 LICENSE=	APACHE20
 LICENSE_FILE=	${WRKSRC}/LICENSE.txt
 
-FETCH_DEPENDS=	mvn:devel/maven
-BUILD_DEPENDS=	mvn:devel/maven
+EXTRACT_DEPENDS=	mvn:devel/maven
+EXTRACT_DEPENDS=	mvn:devel/maven
 RUN_DEPENDS=	slf4j>=1.7.7:devel/slf4j
 
 USES=		cpe
@@ -44,7 +44,7 @@ GROUPS=		${USERS}
 PLIST_SUB+=	VARLOG=${VARLOG} \
 		VARDB=${VARDB}
 
-post-fetch:
+post-extract:
 	(cd "${WRKSRC}" && mvn -Ddistdir="${DISTDIR}" -Doffline=false -gs "${FILESDIR}/settings.xml" validate dependency:resolve-plugins dependency:go-offline)
 
 do-build:
