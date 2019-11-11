@@ -17,13 +17,13 @@ LICENSE_FILE=	${WRKSRC}/LICENSE.txt
 BUILD_DEPENDS=	mvn:devel/maven
 RUN_DEPENDS=	slf4j>=1.7.7:devel/slf4j
 
-OPTIONS_DEFINE=	DOCS
-OPTIONS_SUB=	yes
-
 USES=		cpe
 USE_JAVA=	yes
 JAVA_VERSION=	1.8+
 NO_ARCH=	yes
+
+OPTIONS_DEFINE=	DOCS
+OPTIONS_SUB=	yes
 
 CPE_VENDOR=	igniterealtime
 
