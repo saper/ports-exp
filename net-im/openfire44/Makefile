@@ -3,7 +3,6 @@
 
 PORTNAME=	openfire
 PORTVERSION=	4.4.3
-PORTREVISION=	0
 PORTEPOCH=	1
 CATEGORIES=	net-im java
 MASTER_SITES=	https://github.com/igniterealtime/${PORTNAME}/releases/download/v${PORTVERSION}/
@@ -18,15 +17,12 @@ LICENSE_FILE=	${WRKSRC}/LICENSE.txt
 BUILD_DEPENDS=	mvn:devel/maven
 RUN_DEPENDS=	slf4j>=1.7.7:devel/slf4j
 
-OPTIONS_DEFINE=	DOCS PLUGINS
-OPTIONS_DEFAULT=PLUGINS
+OPTIONS_DEFINE=	DOCS
 OPTIONS_SUB=	yes
-PLUGINS_DESC=	Install bundled plugins
 
 USES=		cpe
-USE_LDCONFIG=	yes
 USE_JAVA=	yes
-JAVA_VERSION=	1.8
+JAVA_VERSION=	1.8+
 NO_ARCH=	yes
 
 CPE_VENDOR=	igniterealtime
@@ -37,8 +33,7 @@ SUB_FILES+=	pkg-message
 SUB_LIST+=	DISTDIR=${DISTDIR}
 
 WRKSRC=		${WRKDIR}/Openfire-${PORTVERSION}
-BUILD_WRKSRC=	${WRKSRC}/build
-INSTALL_WRKSRC=	${WRKSRC}/target/${PORTNAME}
+INSTALL_WRKSRC=	${WRKSRC}/distribution/target/distribution-base
 DATADIR=	${JAVASHAREDIR}/${PORTNAME}
 PORTDOCS=	*
 VARLOG=		/var/log/${PORTNAME}
@@ -47,8 +42,6 @@ USERS=		${PORTNAME}
 GROUPS=		${USERS}
 PLIST_SUB+=	VARLOG=${VARLOG} \
 		VARDB=${VARDB}
-
-PLUGINS_ALL_TARGET=	plugins
 
 post-patch:
 	(cd "${WRKSRC}" && mvn -Ddistdir="${DISTDIR}" -Doffline=false -gs "${FILESDIR}/settings.xml" validate dependency:resolve-plugins dependency:go-offline)
@@ -63,16 +56,15 @@ do-install:
 	@${MKDIR} ${STAGEDIR}${VARLOG}
 
 	(cd ${INSTALL_WRKSRC}/lib && ${INSTALL} -m 744 *.jar ${STAGEDIR}${DATADIR}/lib)
-	(cd ${INSTALL_WRKSRC}/lib && ${INSTALL} -m 744 log4j.xml ${STAGEDIR}${DATADIR}/lib)
+	(cd ${INSTALL_WRKSRC}/lib && ${INSTALL} -m 744 log4j2.xml ${STAGEDIR}${DATADIR}/lib)
 
 	(cd ${INSTALL_WRKSRC}/resources && \
 	    ${FIND} . \! -path ./security\* \! -path ./nativeAuth\* | \
 	    ${CPIO} -pvdmu -R ${SHAREOWN}:${SHAREGRP} \
 	        ${STAGEDIR}${DATADIR}/resources)
 
-#	always install admin interface
-	(cd ${INSTALL_WRKSRC}/plugins/admin && ${FIND} . \
-	| ${CPIO} -pvdmu -R ${SHAREOWN}:${SHAREGRP} ${STAGEDIR}${DATADIR}/plugins/admin)
+	(cd ${INSTALL_WRKSRC}/plugins && ${FIND} . \
+	| ${CPIO} -pvdmu -R ${SHAREOWN}:${SHAREGRP} ${STAGEDIR}${DATADIR}/plugins)
 
 	${LN} -sf ${ETCDIR} ${STAGEDIR}${DATADIR}/conf
 	${LN} -sf ${ETCDIR} ${STAGEDIR}${DATADIR}/resources/security
@@ -87,13 +79,9 @@ do-install:
 	${INSTALL_DATA} ${INSTALL_WRKSRC}/conf/security.xml \
 		${STAGEDIR}${ETCDIR}/security.xml.sample
 
-do-install-PLUGINS-on:
-	(cd ${INSTALL_WRKSRC}/plugins && ${FIND} . \
-	| ${CPIO} -pvdmu -R ${SHAREOWN}:${SHAREGRP} ${STAGEDIR}${DATADIR}/plugins)
-
 do-install-DOCS-on:
 	${MKDIR} ${STAGEDIR}${DOCSDIR}
-	(cd ${WRKSRC}/documentation/docs && ${FIND} . \! -path ./javadoc\* \
+	(cd ${INSTALL_WRKSRC}/documentation && ${FIND} . \
 	| ${CPIO} -pdmu -R ${SHAREOWN}:${SHAREGRP} ${STAGEDIR}${DOCSDIR} > /dev/null 2>&1 )
 
 .include <bsd.port.mk>
