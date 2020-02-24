@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	node-sass
-PORTVERSION=	4.13.0
+PORTVERSION=	4.13.1
 DISTVERSIONPREFIX=	v
 CATEGORIES=	textproc www
 
@@ -51,9 +51,9 @@ fetch-specials:
 	fi
 
 post-extract:
-	(cd ${DISTDIR}/${PORTNAME} && find node_modules | ${PAX} -rw ${WRKSRC})
+	(cd ${DISTDIR}/${PORTNAME} && ${FIND} node_modules | ${PAX} -rw ${WRKSRC})
 	${MKDIR} ${BUILD_NPM_CACHE}
-	(cd ${DIST_NPM_CACHE} && find . | ${PAX} -rw ${BUILD_NPM_CACHE})
+	(cd ${DIST_NPM_CACHE} && ${FIND} . | ${PAX} -rw ${BUILD_NPM_CACHE})
 
 do-build:
 	(cd ${WRKSRC} && ${SETENV} ${CONFIGURE_ENV} ${MAKE_ENV} NPM_CONFIG_CACHE=${BUILD_NPM_CACHE} npm install --nodedir=${LOCALBASE} --production)
@@ -67,7 +67,7 @@ do-install:
 		${GREP} -v 'node-gyp/test/docker.sh' | \
 		${PAX} -rw ${STAGEDIR}${PREFIX}/lib/node_modules/${PORTNAME})
 	(cd ${STAGEDIR}${PREFIX} && ${FIND} lib/node_modules/${PORTNAME}/vendor -type f >> ${TMPPLIST} )
-	${STRIP_CMD} ${STAGEDIR}${PREFIX}/lib/node_modules/${PORTNAME}/vendor/*/binding.node 
+	${STRIP_CMD} ${STAGEDIR}${PREFIX}/lib/node_modules/${PORTNAME}/vendor/*/binding.node
 	${LN} -s ../lib/node_modules/node-sass/bin/node-sass ${STAGEDIR}${PREFIX}/bin/node-sass
 
 test:
