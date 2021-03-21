@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	node-sass
-PORTVERSION=	4.14.0
+PORTVERSION=	5.0.0
 DISTVERSIONPREFIX=	v
 CATEGORIES=	textproc www
 
@@ -16,7 +16,7 @@ FETCH_DEPENDS=	npm>=0:www/npm
 BUILD_DEPENDS=	npm>=0:www/npm
 RUN_DEPENDS=	npm>=0:www/npm
 
-USES=		compiler:c++11-lib gmake python:2.7 shebangfix
+USES=		compiler:c++11-lib gmake python shebangfix
 
 GH_ACCOUNT=	sass
 
