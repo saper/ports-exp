@@ -45,7 +45,7 @@ MAKE_ENV+=	GYP_DEFINES=clang=1
 fetch-specials:
 	${MKDIR} ${DISTDIR}/${PORTNAME}
 	${MKDIR} ${DIST_NPM_CACHE}
-	if [ ! -f ${DISTDIR}/${PORTNAME}/package-lock.json ]; then ${CP} ${FILESDIR}/package-lock.json ${DISTDIR}/${PORTNAME}; \
+	if [ ! -f ${DISTDIR}/${PORTNAME}/package-lock.json ]; then \
 		${CP} ${FILESDIR}/package.json ${DISTDIR}/${PORTNAME}; \
 		(cd ${DISTDIR}/${PORTNAME} && ${SETENV} NPM_CONFIG_CACHE=${DIST_NPM_CACHE} npm install --ignore-scripts --production) \
 	fi
